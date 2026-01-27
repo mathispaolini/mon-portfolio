@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mathis.</title>
+    <meta name="description" content="Portfolio de Mathis Paolini, étudiant en BTS SIO SISR. Expert en Réseaux, Systèmes et Cybersécurité. Recherche Alternance.">
+    <meta property="og:title" content="Mathis Paolini - Technicien Systèmes & Réseaux">
+    <meta name="theme-color" content="#020617">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mathis Paolini",
+      "jobTitle": "Étudiant BTS SIO SISR",
+      "url": "https://mathis-paolini-portfolio.netlify.app",
+      "sameAs": ["https://www.linkedin.com/in/mathis-paolini-859a48343/", "https://github.com/"]
+    }
+    </script>
+
+    <style>
+        /* CONFIGURATION GLOBALE */
+        :root {
+            --bg-dark: #020617; --primary: #3b82f6; --secondary: #8b5cf6; --accent: #10b981;
+            --text-main: #f8fafc; --text-muted: #94a3b8;
+            --nav-bg: rgba(2, 6, 23, 0.0); --nav-scrolled: rgba(2, 6, 23, 0.9);
+            --border: rgba(255, 255, 255, 0.08); --card-glass: rgba(15, 23, 42, 0.6);
+        }
+        ::selection { background: var(--primary); color: white; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        html { scroll-padding-top: 100px; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; }
+
+        /* CANVAS BACKGROUND */
+        #canvas1 { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 0%, #172554 0%, #020617 80%); }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* PRELOADER */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark); z-index: 9998; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s; }
+        .loader-text { font-size: 2rem; font-weight: 800; color: white; letter-spacing: 2px; animation: pulseText 1.5s infinite; }
+        @keyframes pulseText { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+        .loaded { opacity: 0; visibility: hidden; }
+
+        /* LOGIN OVERLAY */
+        #login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020617; z-index: 10000; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.8s ease, visibility 0.8s; }
+        .login-box { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--primary); padding: 3rem; border-radius: 20px; text-align: center; box-shadow: 0 0 50px rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); max-width: 400px; width: 90%; }
+        .login-box h2 { margin-bottom: 1.5rem; color: white; font-weight: 700; }
+        .login-box i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+        .login-input { width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border); color: white; border-radius: 8px; margin-bottom: 1rem; font-size: 1.1rem; text-align: center; }
+        .login-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+        .login-btn { background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; width: 100%; }
+        .login-btn:hover { background: var(--secondary); transform: translateY(-2px); }
+        .error-msg { color: #ef4444; margin-top: 10px; display: none; font-size: 0.9rem; }
+        .hidden-overlay { opacity: 0; visibility: hidden; pointer-events: none; }
+        .shake { animation: shakeAnim 0.5s; }
+        @keyframes shakeAnim { 0% { transform: translateX(0); } 25% { transform: translateX(-10px); } 50% { transform: translateX(10px); } 75% { transform: translateX(-10px); } 100% { transform: translateX(0); } }
+
+        /* UI ELEMENTS */
+        #progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: transparent; z-index: 2001; }
+        #progress-bar { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0%; box-shadow: 0 0 15px var(--primary); }
+        #back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); z-index: 999; border: 1px solid rgba(255,255,255,0.2); }
+        #back-to-top.show { opacity: 1; visibility: visible; }
+        #back-to-top:hover { transform: translateY(-5px); background: var(--secondary); }
+
+        header { position: fixed; top: 0; width: 100%; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; background: var(--nav-bg); z-index: 1000; transition: 0.4s ease; border-bottom: 1px solid transparent; }
+        header.scrolled { background: var(--nav-scrolled); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 5%; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.3rem; letter-spacing: -0.5px; }
+        .logo-text { color: white; }
+        .logo-badge { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; letter-spacing: 1px; color: white; text-transform: uppercase; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+        nav ul { display: flex; gap: 0.5rem; list-style: none; }
+        nav a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; padding: 0.6rem 1rem; border-radius: 12px; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        nav a:hover, nav a.active-link { color: white; background: rgba(255,255,255,0.05); }
+        nav a:hover i, nav a.active-link i { color: var(--primary); transform: translateY(-2px); }
+        .btn-header { background: linear-gradient(90deg, var(--primary), var(--secondary)); color: white !important; padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        .btn-header:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: white; cursor: pointer; }
+
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; }
+        .status-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 8px 16px; border-radius: 50px; margin-bottom: 2rem; color: var(--accent); font-weight: 500; font-size: 0.9rem; box-shadow: 0 0 20px rgba(16, 185, 129, 0.1); backdrop-filter: blur(5px); }
+        .status-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 rgba(16, 185, 129, 0.4); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+        
+        .profile-avatar { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 3px; margin-bottom: 1.5rem; box-shadow: 0 0 40px rgba(59, 130, 246, 0.4); animation: floatAvatar 6s ease-in-out infinite; }
+        @keyframes floatAvatar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .profile-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-dark); background-color: var(--bg-dark); }
+        
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1rem; font-weight: 800; letter-spacing: -2px; }
+        .hero h1 span { background: linear-gradient(to right, #60a5fa, #c084fc); -webkit-background-clip: text; color: transparent; }
+        .typewriter { font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; font-family: 'Courier New', monospace; background: rgba(255,255,255,0.03); padding: 5px 15px; border-radius: 8px; border: 1px solid var(--border); }
+        .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0.7; }
+        .mouse { width: 26px; height: 40px; border: 2px solid var(--text-muted); border-radius: 20px; position: relative; }
+        .wheel { width: 4px; height: 8px; background: white; border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); animation: scroll 1.5s infinite; }
+        @keyframes scroll { 0% { opacity: 1; top: 6px; } 100% { opacity: 0; top: 20px; } }
+
+        .marquee-container { width: 100%; padding: 2rem 0; background: rgba(2, 6, 23, 0.8); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; white-space: nowrap; position: relative; backdrop-filter: blur(5px); }
+        .marquee-container:hover .marquee-content { animation-play-state: paused; }
+        .marquee-content { display: inline-flex; align-items: center; gap: 4rem; animation: marquee 20s linear infinite; }
+        .tech-item { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 1.2rem; font-weight: 600; cursor: default; }
+        .tech-item i { font-size: 1.8rem; color: var(--primary); transition: 0.3s; }
+        .tech-item:hover i { transform: scale(1.2); color: var(--secondary); }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        section { padding: 6rem 8%; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 1rem; font-weight: 700; }
+        .section-header span { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; color: transparent; }
+        
+        .procedures-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; perspective: 1000px; }
+        .card { background: var(--card-glass); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 2.5rem; position: relative; transition: all 0.4s ease; overflow: hidden; backdrop-filter: blur(12px); display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.2); }
+        .card-content { position: relative; z-index: 1; display:flex; flex-direction:column; height:100%;}
+        .icon-box { width: 60px; height: 60px; background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1)); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .btn-link { color: var(--text-main); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top:1rem; padding-bottom: 2px; border-bottom: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
+        .btn-link:hover { color: var(--primary); border-color: var(--primary); gap: 12px; }
+        .profile-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; color: var(--text-muted); }
+        .profile-list i { color: var(--primary); width: 20px; }
+        .about-text-box { background: linear-gradient(180deg, rgba(30,41,59,0.3), rgba(15,23,42,0.6)); border: 1px solid var(--border); padding: 2.5rem; border-radius: 20px; margin-bottom: 4rem; max-width: 900px; margin-left: auto; margin-right: auto; text-align: center; color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+        .social-icons { margin-top: 2rem; display: flex; gap: 20px; }
+        .social-icons a { font-size: 1.8rem; color: var(--text-muted); transition: 0.3s; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); }
+        .social-icons a:hover { color: white; transform: translateY(-3px); background: var(--primary); border-color: var(--primary); }
+
+        .timeline { max-width: 900px; margin: 0 auto; position: relative; }
+        .timeline::after { content: ''; position: absolute; width: 2px; background: rgba(59, 130, 246, 0.2); top: 0; bottom: 0; left: 30px; margin-left: -1px; }
+        .timeline-item { padding: 10px 40px 40px 80px; position: relative; background: inherit; width: 100%; }
+        .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: auto; left: 22px; top: 15px; border-radius: 50%; border: 3px solid var(--bg-dark); background: var(--primary); z-index: 1; box-shadow: 0 0 10px var(--primary); }
+        .timeline-content { padding: 2rem; background: var(--card-glass); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; backdrop-filter: blur(10px); transition: 0.4s; }
+        .timeline-content:hover { transform: translateX(10px); border-color: rgba(59, 130, 246, 0.3); }
+        .date { color: var(--primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
+
+        .contact-box { background: linear-gradient(180deg, rgba(30,41,59,0.4), rgba(15,23,42,0.8)); padding: 3rem; border-radius: 30px; border: 1px solid var(--border); max-width: 800px; margin: 0 auto; backdrop-filter: blur(10px); }
+        input, textarea { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border); padding: 1rem; border-radius: 12px; color: white; font-family: inherit; margin-bottom: 1rem; transition: 0.3s; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); background: rgba(0,0,0,0.5); }
+        button[type="submit"] { width: 100%; padding: 1rem; background: var(--primary); color: white; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+        button[type="submit"]:hover { background: var(--secondary); transform: translateY(-2px); }
+
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .modal-content { background: #0f172a; border: 1px solid var(--border); border-radius: 20px; margin: 10% auto; padding: 2rem; width: 90%; max-width: 600px; color: var(--text-muted); box-shadow: 0 0 50px rgba(59, 130, 246, 0.3); position: relative; animation: modalAnim 0.4s ease; }
+        @keyframes modalAnim { from {opacity:0; transform:translateY(-50px);} to {opacity:1; transform:translateY(0);} }
+        .close-modal { position: absolute; top: 15px; right: 20px; color: white; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .legal-link { cursor: pointer; color: var(--text-muted); text-decoration: underline; transition: 0.3s; }
+        .legal-link:hover { color: var(--primary); }
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            nav ul { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #030712; flex-direction: column; padding: 2rem; border-bottom: 1px solid var(--border); }
+            nav ul.active { display: flex; }
+            .menu-toggle { display: block; }
+            .timeline::after { left: 20px; }
+            .timeline-item { padding-left: 50px; padding-right: 0; }
+            .timeline-item::after { left: 12px; }
+        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media print {
+            body { background: white; color: black; }
+            #canvas1, #preloader, #back-to-top, .bg-blobs, .menu-toggle, .social-icons, #progress-container, #login-overlay { display: none !important; }
+            header { position: absolute; background: white; box-shadow: none; border-bottom: 1px solid #ddd; }
+            nav ul { display: none; }
+            .logo-text { color: black; text-shadow: none; }
+            .hero, section { min-height: auto; padding: 2rem 0; page-break-inside: avoid; }
+            .card, .contact-box, .timeline-content { background: white; border: 1px solid #ddd; box-shadow: none; color: black; }
+            h1, h2, h3, p, span, li { color: black !important; }
+            a { text-decoration: none; color: black !important; }
+            .status-badge { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-overlay">
+        <div class="login-box">
+            <i class="fas fa-user-lock"></i>
+            <h2>Accès Restreint</h2>
+            <p style="color: #94a3b8; margin-bottom: 1.5rem;">Veuillez entrer le mot de passe pour accéder au portfolio.</p>
+            <input type="password" id="passwordInput" class="login-input" placeholder="Mot de passe">
+            <button onclick="checkPassword()" class="login-btn">Déverrouiller</button>
+            <p id="errorMsg" class="error-msg">Mot de passe incorrect</p>
+        </div>
+    </div>
+
+    <canvas id="canvas1"></canvas>
+    <div id="preloader"><div class="loader-text">MATHIS.</div></div>
+    <div id="back-to-top" title="Retour en haut" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <span class="logo-text">Mathis Paolini</span>
+            <span class="logo-badge">PORTFOLIO</span>
+        </div>
+        <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        <nav>
+            <ul>
+                <li><a href="#accueil" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="#apropos" class="nav-link"><i class="fas fa-user"></i> À Propos</a></li>
+                <li><a href="#competences" class="nav-link"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="#veille" class="nav-link"><i class="fas fa-rss"></i> Veille</a></li>
+                <li><a href="#docs-techniques" class="nav-link"><i class="fas fa-file-pdf"></i> Procédures</a></li>
+                <li><a href="#parcours" class="nav-link"><i class="fas fa-route"></i> Parcours</a></li>
+                <li><a href="#contact" class="btn-header nav-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="reveal" style="display:flex; flex-direction:column; align-items:center;">
+            <div class="status-badge"><div class="status-dot"></div>Disponible pour Alternance</div>
+            <div class="profile-avatar"><img src="ma-photo.jpg" alt="Mathis Paolini" loading="lazy" width="130" height="130"></div>
+            <h1>Mathis <span>Paolini</span></h1>
+            <div class="typewriter">> <span id="typing-text"></span></div>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; text-align:center;">
+                Étudiant en BTS SIO (SISR). Je conçois des architectures réseaux sécurisées et j'administre des systèmes complexes.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <a href="#apropos" class="btn-header" style="text-decoration:none;">En savoir plus</a>
+                <a href="PAOLINI_Mathis_CV.pdf" download class="btn-header" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); box-shadow: none;">
+                    <i class="fas fa-download"></i> Télécharger CV
+                </a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/mathis-paolini-859a48343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="scroll-down"><div class="mouse"><div class="wheel"></div></div><span>SCROLL</span></div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <div class="tech-item"><i class="fab fa-windows"></i> Windows Server</div>
+            <div class="tech-item"><i class="fab fa-linux"></i> Linux Debian</div>
+            <div class="tech-item"><i class="fas fa-network-wired"></i> Cisco Packet Tracer</div>
+            <div class="tech-item"><i class="fas fa-server"></i> VmWare ESXi</div>
+            <div class="tech-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div>
+            <div class="tech-item"><i class="fab fa-php"></i> PHP & Web</div>
+            <div class="tech-item"><i class="fas fa-database"></i> SQL</div>
+            <div class="tech-item"><i class="fab fa-docker"></i> Docker</div>
+            <div class="tech-item"><i class="fab fa-windows"></i> Windows Server</div>
+            <div class="tech-item"><i class="fab fa-linux"></i> Linux Debian</div>
+            <div class="tech-item"><i class="fas fa-network-wired"></i> Cisco Packet Tracer</div>
+            <div class="tech-item"><i class="fas fa-server"></i> VmWare ESXi</div>
+            <div class="tech-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div>
+            <div class="tech-item"><i class="fab fa-php"></i> PHP & Web</div>
+            <div class="tech-item"><i class="fas fa-database"></i> SQL</div>
+            <div class="tech-item"><i class="fab fa-docker"></i> Docker</div>
+        </div>
+    </div>
+
+    <section id="apropos">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+            <h2>À Propos de <span>Moi</span></h2>
+        </div>
+        <div class="about-text-box reveal">
+            <p>
+                Actuellement étudiant en <strong>BTS SIO (Option SISR)</strong> à CaenSup Sainte-Ursule, je me passionne pour l'administration système et la cybersécurité. Mon parcours m'a permis d'acquérir des bases solides, renforcées par mes stages pratiques au <strong>Centre François Baclesse</strong> et chez <strong>B'Plast</strong>, où j'ai pu confronter mes connaissances à la réalité du terrain.
+            </p>
+            <br>
+            <p>
+                Mon ambition est claire : intégrer la <strong>Licence STS Sécurité des réseaux et Cybersécurité</strong> en alternance dès septembre prochain. Curieux, rigoureux et autonome, je souhaite mettre mes compétences techniques et mon esprit d'analyse au service de la protection de vos infrastructures.
+            </p>
+        </div>
+        <div class="procedures-grid" id="cards-container-profil">
+            <div class="card reveal">
+                <h3><i class="fas fa-user-check" style="color:var(--primary)"></i> Soft Skills</h3>
+                <ul class="profile-list" style="margin-top:1rem; list-style:none;">
+                    <li><i class="fas fa-check"></i> Autonomie & Recherche</li>
+                    <li><i class="fas fa-check"></i> Rigueur & Organisation</li>
+                    <li><i class="fas fa-check"></i> Esprit d'analyse</li>
+                </ul>
+            </div>
+            <div class="card reveal">
+                <h3><i class="fas fa-globe" style="color:var(--secondary)"></i> Langues & Mobilité</h3>
+                <ul class="profile-list" style="margin-top:1rem; list-style:none;">
+                    <li><i class="fas fa-language"></i> Anglais (B2)</li>
+                    <li><i class="fas fa-language"></i> Espagnol (A2)</li>
+                    <li><i class="fas fa-car"></i> Permis B + Véhicule</li>
+                </ul>
+            </div>
+            <div class="card reveal">
+                <h3><i class="fas fa-heart" style="color:#10b981"></i> Centres d'intérêts</h3>
+                <ul class="profile-list" style="margin-top:1rem; list-style:none;">
+                    <li><i class="fas fa-basketball-ball"></i> Sports collectifs</li>
+                    <li><i class="fas fa-running"></i> Randonnée</li>
+                    <li><i class="fas fa-plane"></i> Voyages</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+            <h2>Mes <span>Compétences</span></h2>
+            <p style="color: var(--text-muted);">Savoir-faire technique acquis en formation et en stage.</p>
+        </div>
+        <div class="procedures-grid" id="cards-container">
+            <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box"><i class="fas fa-network-wired"></i></div>
+                    <h3>Réseau & Cisco/HP</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Configuration de switchs/routeurs, VLANs, routage inter-VLAN, ACLs. Maîtrise de Packet Tracer.
+                    </p>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box" style="color: var(--secondary); background: rgba(168, 85, 247, 0.1); border-color:rgba(168, 85, 247, 0.2);"><i class="fab fa-linux"></i></div>
+                    <h3>Systèmes & Linux</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Administration Debian/Ubuntu (CLI, Bash). Serveurs Web (Apache/Nginx) et gestion des droits fichiers.
+                    </p>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color:rgba(16, 185, 129, 0.2);"><i class="fas fa-server"></i></div>
+                    <h3>Virtualisation</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Création et gestion de machines virtuelles sous VMware ESXi, Hyper-V et Proxmox. Allocation des ressources.
+                    </p>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1); border-color:rgba(251, 191, 36, 0.2);"><i class="fas fa-certificate"></i></div>
+                    <h3>Certifications</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        <strong>ANSSI - SecNumAcadémie</strong><br>
+                        MOOC de sensibilisation à la cybersécurité et hygiène informatique.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="veille" style="background: rgba(255,255,255,0.01);">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+            <h2>Veille <span>Technologique</span></h2>
+            <p style="color: var(--text-muted);">Les sujets et outils que j'utilise pour rester à jour.</p>
+        </div>
+        <div class="procedures-grid" id="cards-container-veille">
+            <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box" style="color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Sujets Suivis</h3>
+                    <ul class="profile-list" style="margin-top:1rem; list-style:none;">
+                        <li><i class="fas fa-rss" style="color:#ef4444;"></i> Menaces Cyber (Ransomware)</li>
+                        <li><i class="fas fa-rss" style="color:#ef4444;"></i> Failles Zéro-Day</li>
+                        <li><i class="fas fa-rss" style="color:#ef4444;"></i> Évolution Cloud (Azure/AWS)</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box" style="color: #3b82f6; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2);"><i class="fas fa-broadcast-tower"></i></div>
+                    <h3>Mes Sources</h3>
+                    <ul class="profile-list" style="margin-top:1rem; list-style:none;">
+                        <li><i class="fas fa-link" style="color:#3b82f6;"></i> CERT-FR & ANSSI</li>
+                        <li><i class="fab fa-linkedin" style="color:#3b82f6;"></i> Experts Cyber LinkedIn</li>
+                        <li><i class="fas fa-newspaper" style="color:#3b82f6;"></i> LeMagIT & ZDNet</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <div class="icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.2);"><i class="fas fa-tools"></i></div>
+                    <h3>Outils de Veille</h3>
+                    <p style="color: var(--text-muted); margin-bottom:1rem;">Outils utilisés pour centraliser l'information :</p>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <span style="padding:5px 15px; background:rgba(255,255,255,0.05); border-radius:20px; font-size:0.9rem;">Feedly</span>
+                        <span style="padding:5px 15px; background:rgba(255,255,255,0.05); border-radius:20px; font-size:0.9rem;">Pocket</span>
+                        <span style="padding:5px 15px; background:rgba(255,255,255,0.05); border-radius:20px; font-size:0.9rem;">Newsletter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="docs-techniques">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
+            <h2>Mes <span>Procédures & TP</span></h2>
+            <p style="color: var(--text-muted);">Documentation complète de mes réalisations en cours et en entreprise.</p>
+        </div>
+        <div class="procedures-grid" id="cards-container-docs">
+            <div class="card reveal">
+                <div class="card-content">
+                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> GLPI & OCS</h3>
+                    <p style="margin: 1rem 0; color: var(--text-muted);">Installation et configuration d'un serveur de gestion de parc et ticketing.</p>
+                    <a href="proc_glpi.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> VLAN Cisco</h3>
+                    <p style="margin: 1rem 0; color: var(--text-muted);">Mise en place de la segmentation réseau, trunks et sécurité port-security.</p>
+                    <a href="proc_vlan.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> Active Directory</h3>
+                    <p style="margin: 1rem 0; color: var(--text-muted);">Promotion contrôleur de domaine, création arborescence OUs et GPO.</p>
+                    <a href="proc_ad.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-content">
+                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> Serveur Web</h3>
+                    <p style="margin: 1rem 0; color: var(--text-muted);">Installation LAMP sous Debian 11, configuration Apache et VirtualHosts.</p>
+                    <a href="proc_web.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+            <h2>Mon <span>Parcours</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="date">Déc 2025 - Fév 2026</span>
+                    <h3>Stage Informatique - B'Plast (Vire)</h3>
+                    <p style="color: var(--text-muted);">Configuration de Switchs, supervision réseau et préparation de postes de travail.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="date">Depuis Juin 2025</span>
+                    <h3>Employé Polyvalent - LIDL (Thury-Harcourt)</h3>
+                    <p style="color: var(--text-muted);">Mise en rayon, tenue de caisse et boulangerie. Développement de l'autonomie et de la rigueur.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="date">Mai 2025 - Juin 2025</span>
+                    <h3>Stage Technicien - Centre François Baclesse</h3>
+                    <p style="color: var(--text-muted);">Administration Windows Server, Support N1/N2 et installation de points d'accès Wi-Fi.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="date">Depuis 2024</span>
+                    <h3>BTS SIO (Option SISR)</h3>
+                    <p style="color: var(--text-muted);">CaenSup Sainte-Ursule. Spécialisation Solutions d'Infrastructures, Systèmes et Réseaux.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="date">2021 - 2024</span>
+                    <h3>Baccalauréat STMG (Option SIG)</h3>
+                    <p style="color: var(--text-muted);">Lycée Jean Rostand (Caen). Systèmes d'information de Gestion.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="date">2021</span>
+                    <h3>Stage Découverte - Coulidoor (Verson)</h3>
+                    <p style="color: var(--text-muted);">Comptabilité sur Excel et classement de documents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+            <h2>Me <span>Contacter</span></h2>
+        </div>
+        <div class="contact-box reveal">
+            <form action="https://formspree.io/f/mwvvgbrb" method="POST">
+                <input type="text" name="_gotcha" style="display:none">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="text" name="name" placeholder="Votre Nom" required aria-label="Nom">
+                    <input type="email" name="email" placeholder="Votre Email" required aria-label="Email">
+                </div>
+                <input type="text" name="subject" placeholder="Sujet" required aria-label="Sujet">
+                <textarea name="message" rows="5" placeholder="Votre message..." required aria-label="Message"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+            <div style="text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height:1.8;">
+                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> paolinimathis@gmail.com</p>
+                <p><i class="fas fa-phone" style="color:var(--primary)"></i> 07 77 64 13 91</p>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Esquay-Notre-Dame (14210), Normandie</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--border); font-size: 0.9rem;">
+        &copy; <span id="year">2026</span> Mathis Paolini. Portfolio BTS SIO.<br>
+        <span id="open-legal" class="legal-link">Mentions Légales</span>
+    </footer>
+
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color:white; margin-bottom:1rem;">Mentions Légales</h2>
+            <p><strong>Éditeur du site :</strong><br>Mathis Paolini<br>Étudiant BTS SIO<br>Email : paolinimathis@gmail.com</p>
+            <br>
+            <p><strong>Hébergement :</strong><br>Le site est hébergé par <strong>Netlify, Inc.</strong><br>2325 3rd Street, Suite 215, San Francisco, California 94107, USA.</p>
+            <br>
+            <p><strong>Données Personnelles (RGPD) :</strong><br>Les informations recueillies via le formulaire de contact sont transmises uniquement par email à Mathis Paolini via le service <strong>Formspree</strong>. Elles ne sont pas stockées en base de données et servent uniquement à répondre à votre demande. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données sur simple demande par email.</p>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURATION SÉCURISÉE ---
+        const SITE_LOCKED = true; 
+        const PASSWORD_HASH = "028b569b20e6d5a166657def82c41d87948efd97ac00820fc55b6103b65adf70";
+
+        // --- FONCTION DE HACHAGE ---
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // --- VERIFICATION DU MOT DE PASSE ---
+        async function checkPassword() {
+            const input = document.getElementById("passwordInput").value;
+            const errorMsg = document.getElementById("errorMsg");
+            const overlay = document.getElementById("login-overlay");
+            const inputHash = await sha256(input);
+
+            if (inputHash === PASSWORD_HASH) {
+                overlay.classList.add("hidden-overlay");
+                sessionStorage.setItem("auth", "true");
+            } else {
+                errorMsg.style.display = "block";
+                document.querySelector('.login-box').classList.add("shake");
+                setTimeout(() => document.querySelector('.login-box').classList.remove("shake"), 500);
+            }
+        }
+
+        // --- CHARGEMENT ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            const overlay = document.getElementById("login-overlay");
+            
+            preloader.classList.add('loaded');
+            setTimeout(() => { preloader.style.display = 'none'; }, 500);
+
+            if (!SITE_LOCKED || sessionStorage.getItem("auth") === "true") {
+                overlay.style.display = "none";
+            }
+
+            document.getElementById("passwordInput").addEventListener("keypress", function(event) {
+                if (event.key === "Enter") { checkPassword(); }
+            });
+        });
+
+        // DATE DYNAMIQUE
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // --- SCROLL, NAV & UI ---
+        const header = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) { 
+                header.classList.add('scrolled'); backToTop.classList.add('show'); 
+            } else { 
+                header.classList.remove('scrolled'); backToTop.classList.remove('show'); 
+            }
+            
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) { current = section.getAttribute("id"); }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove("active-link");
+                if (link.getAttribute("href").includes(current)) { link.classList.add("active-link"); }
+            });
+            reveal();
+        };
+
+        backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navUl = document.querySelector('nav ul');
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+            menuToggle.innerHTML = navUl.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for(var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                if(revealTop < windowHeight - 100) reveals[i].classList.add('active');
+            }
+        }
+        reveal();
+
+        const textElement = document.getElementById('typing-text');
+        const phrases = ["Technicien SIO", "Admin Réseaux", "Passionné IT"];
+        let phraseIndex = 0, charIndex = 0, isDeleting = false;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) { textElement.textContent = currentPhrase.substring(0, charIndex - 1); charIndex--; } 
+            else { textElement.textContent = currentPhrase.substring(0, charIndex + 1); charIndex++; }
+            if (!isDeleting && charIndex === currentPhrase.length) { isDeleting = true; setTimeout(type, 2000); } 
+            else if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; setTimeout(type, 500); } 
+            else { setTimeout(type, isDeleting ? 50 : 100); }
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        const addMouseEffect = (containerId) => {
+             const container = document.getElementById(containerId);
+             if(container){
+                container.onmousemove = e => {
+                    for(const card of container.getElementsByClassName("card")) {
+                        const rect = card.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top;
+                        card.style.setProperty("--mouse-x", `${x}px`); card.style.setProperty("--mouse-y", `${y}px`);
+                    }
+                };
+             }
+        }
+        addMouseEffect("cards-container"); addMouseEffect("cards-container-profil"); addMouseEffect("cards-container-docs"); addMouseEffect("cards-container-veille");
+
+        const modal = document.getElementById("legal-modal");
+        const btn = document.getElementById("open-legal");
+        const span = document.getElementsByClassName("close-modal")[0];
+        btn.onclick = function() { modal.style.display = "block"; }
+        span.onclick = function() { modal.style.display = "none"; }
+        window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
+
+        // --- SCRIPT PARTICLES OPTIMISÉ MOBILE ---
+        const canvas = document.getElementById('canvas1'); const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particlesArray; let mouse = { x: null, y: null, radius: (canvas.height/80) * (canvas.width/80) }
+        window.addEventListener('mousemove', function(event) { mouse.x = event.x; mouse.y = event.y; });
+        
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
+            }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = this.color; ctx.fill(); }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                
+                // Interaction souris désactivée sur mobile pour perf
+                if (window.innerWidth > 768) {
+                    let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx*dx + dy*dy);
+                    if (distance < mouse.radius + this.size) {
+                        if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 3;
+                        if (mouse.x > this.x && this.x > this.size * 10) this.x -= 3;
+                        if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 3;
+                        if (mouse.y > this.y && this.y > this.size * 10) this.y -= 3;
+                    }
+                }
+                this.x += this.directionX; this.y += this.directionY; this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            // Optimisation nombre particules
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            if (window.innerWidth < 768) { numberOfParticles = (canvas.height * canvas.width) / 25000; }
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 3) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 2) - 1; let directionY = (Math.random() * 2) - 1;
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, '#3b82f6'));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate); ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); } connect();
+        }
+
+        function connect() {
+            // Pas de lignes sur mobile pour perf
+            if (window.innerWidth < 768) return; 
+
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        let opacityValue = 1 - (distance/20000); 
+                        let color = particlesArray[a].color === '#00ff00' ? '0, 255, 0' : '59, 130, 246';
+                        ctx.strokeStyle = 'rgba(' + color + ',' + opacityValue + ')'; ctx.lineWidth = 1;
+                        ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke();
+                    }
+                }
+            }
+        }
+        window.addEventListener('resize', function() { canvas.width = innerWidth; canvas.height = innerHeight; mouse.radius = ((canvas.height/80) * (canvas.height/80)); init(); });
+        window.addEventListener('mouseout', function() { mouse.x = undefined; mouse.y = undefined; });
+        init(); animate();
+
+        // --- KONAMI CODE (EASTER EGG) ---
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiCursor = 0;
+        document.addEventListener('keydown', function(e) {
+            if (e.key === konamiCode[konamiCursor]) {
+                konamiCursor++;
+                if (konamiCursor === konamiCode.length) { activateMatrixMode(); konamiCursor = 0; }
+            } else { konamiCursor = 0; }
+        });
+        function activateMatrixMode() {
+            alert("ACCESS GRANTED : MATRIX MODE ACTIVATED 🐰🕳️");
+            document.documentElement.style.setProperty('--primary', '#00ff00');
+            document.documentElement.style.setProperty('--secondary', '#003300');
+            document.documentElement.style.setProperty('--text-muted', '#00cc00');
+            document.documentElement.style.setProperty('--bg-dark', '#000000');
+            document.documentElement.style.setProperty('--card-glass', 'rgba(0, 50, 0, 0.8)');
+            document.body.style.fontFamily = "'Courier New', monospace";
+            particlesArray.forEach(p => p.color = '#00ff00');
+        }
+    </script>
+</body>
+</html>
