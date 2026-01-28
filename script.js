@@ -1,5 +1,5 @@
 // --- 1. CONFIGURATION SÉCURISÉE ---
-const SITE_LOCKED = true; // ACTIVÉ
+const SITE_LOCKED = false; // ACTIVÉ
 const PASSWORD_HASH = "028b569b20e6d5a166657def82c41d87948efd97ac00820fc55b6103b65adf70";
 
 // --- GESTION INSTANTANÉE DU VERROUILLAGE ---
@@ -261,4 +261,5 @@ function activateMatrixMode() {
     document.documentElement.style.setProperty('--card-glass', 'rgba(0, 50, 0, 0.8)');
     document.body.style.fontFamily = "'Courier New', monospace";
     particlesArray.forEach(p => p.color = '#00ff00');
+
 }
