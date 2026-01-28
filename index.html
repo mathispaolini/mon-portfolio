@@ -21,10 +21,10 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Mathis PAOLINI",
+      "name": "Mathis Paolini",
       "jobTitle": "Étudiant BTS SIO SISR",
       "url": "https://mathis-paolini.github.io",
-      "sameAs": ["https://www.linkedin.com/in/mathis-paolini-859a48343/", "https://github.com/mathispaolini"]
+      "sameAs": ["https://www.linkedin.com/in/mathis-paolini-859a48343/", "https://github.com/"]
     }
     </script>
 
@@ -81,8 +81,10 @@
         #back-to-top.show { opacity: 1; visibility: visible; }
         #back-to-top:hover { transform: translateY(-5px); background: var(--secondary); }
 
-        header { position: fixed; top: 0; width: 100%; padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; background: var(--nav-bg); z-index: 1000; transition: 0.4s ease; border-bottom: 1px solid transparent; }
-        header.scrolled { background: var(--nav-scrolled); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 5%; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        /* MODIFICATION ICI : Padding horizontal réduit (2rem au lieu de 5%) pour coller le logo à gauche */
+        header { position: fixed; top: 0; width: 100%; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; background: var(--nav-bg); z-index: 1000; transition: 0.4s ease; border-bottom: 1px solid transparent; }
+        header.scrolled { background: var(--nav-scrolled); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+        
         .logo-container { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.3rem; letter-spacing: -0.5px; }
         .logo-text { color: white; }
         .logo-badge { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; letter-spacing: 1px; color: white; text-transform: uppercase; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
@@ -104,7 +106,8 @@
         .status-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 rgba(16, 185, 129, 0.4); animation: pulse 2s infinite; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
         
-        .profile-avatar { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 3px; margin-bottom: 1.5rem; box-shadow: 0 0 40px rgba(59, 130, 246, 0.4); animation: floatAvatar 6s ease-in-out infinite; }
+        /* MODIFICATION ICI : Taille augmentée à 150px */
+        .profile-avatar { width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 3px; margin-bottom: 1.5rem; box-shadow: 0 0 40px rgba(59, 130, 246, 0.4); animation: floatAvatar 6s ease-in-out infinite; }
         @keyframes floatAvatar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .profile-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-dark); background-color: var(--bg-dark); }
         
@@ -167,16 +170,15 @@
         @media (max-width: 900px) {
             .hero h1 { font-size: 3rem; }
             
-            /* Ajustement du Menu Burger */
-            header { padding: 1rem 1.5rem; } /* Marges réduites pour écarter les éléments */
+            /* MODIFICATION ICI : Padding réduit (0.8rem) pour coller le burger à droite */
+            header { padding: 1rem 0.8rem; } 
             
             nav ul { display: none; position: fixed; top: 70px; left: 0; width: 100%; background: #030712; flex-direction: column; padding: 2rem; border-bottom: 1px solid var(--border); }
             nav ul.active { display: flex; }
             .menu-toggle { display: block; }
             
-            /* Cache l'icône de scroll sur mobile pour éviter le chevauchement */
             .scroll-down { display: none; }
-            .hero { padding-bottom: 50px; } /* Ajuste l'espace bas */
+            .hero { padding-bottom: 50px; } 
 
             .timeline::after { left: 20px; }
             .timeline-item { padding-left: 50px; padding-right: 0; }
@@ -190,7 +192,8 @@
         @media screen and (max-height: 850px) {
             .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
             .status-badge { margin-bottom: 1rem; padding: 5px 12px; }
-            .profile-avatar { width: 100px; height: 100px; margin-bottom: 1rem; }
+            /* MODIFICATION ICI : Taille augmentée à 120px pour les petits écrans */
+            .profile-avatar { width: 120px; height: 120px; margin-bottom: 1rem; }
             .typewriter { margin-bottom: 1rem; font-size: 1.2rem; }
             .hero > div[style*="margin-bottom: 2rem"] { margin-bottom: 1.5rem !important; }
         }
@@ -229,7 +232,7 @@
 
     <header id="navbar">
         <div class="logo-container">
-            <span class="logo-text">Mathis PAOLINI</span>
+            <span class="logo-text">Mathis Paolini</span>
             <span class="logo-badge">PORTFOLIO</span>
         </div>
         <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
@@ -249,8 +252,8 @@
     <section id="accueil" class="hero">
         <div class="reveal" style="display:flex; flex-direction:column; align-items:center;">
             <div class="status-badge"><div class="status-dot"></div>Disponible pour Alternance</div>
-            <div class="profile-avatar"><img src="ma-photo.jpg" alt="Mathis Paolini" loading="lazy" width="130" height="130"></div>
-            <h1>Mathis <span>PAOLINI</span></h1>
+            <div class="profile-avatar"><img src="ma-photo.jpg" alt="Mathis Paolini" loading="lazy" width="150" height="150"></div>
+            <h1>Mathis <span>Paolini</span></h1>
             <div class="typewriter">> <span id="typing-text"></span></div>
             <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; text-align:center;">
                 Étudiant en BTS SIO (SISR). Je conçois des architectures réseaux sécurisées et j'administre des systèmes complexes.
@@ -263,7 +266,7 @@
             </div>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/mathis-paolini-859a48343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/mathispaolini" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
         <div class="scroll-down"><div class="mouse"><div class="wheel"></div></div><span>SCROLL</span></div>
@@ -780,4 +783,3 @@
     </script>
 </body>
 </html>
-
