@@ -23,8 +23,8 @@
       "@type": "Person",
       "name": "Mathis Paolini",
       "jobTitle": "Étudiant BTS SIO SISR",
-      "url": "https://mathispaolini.github.io/mon-portfolio/",
-      "sameAs": ["https://www.linkedin.com/in/mathis-paolini-859a48343/", "https://github.com/mathispaolini"]
+      "url": "https://mathis-paolini.github.io", 
+      "sameAs": ["https://www.linkedin.com/in/mathis-paolini-859a48343/", "https://github.com/"]
     }
     </script>
 
@@ -56,8 +56,23 @@
         @keyframes pulseText { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
         .loaded { opacity: 0; visibility: hidden; }
 
-        /* LOGIN OVERLAY */
-        #login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020617; z-index: 10000; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.8s ease, visibility 0.8s; }
+        /* LOGIN OVERLAY (MODIFIÉ : CACHÉ PAR DÉFAUT) */
+        #login-overlay { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: #020617; 
+            z-index: 10000; 
+            
+            display: none; /* <--- MODIFICATION ICI : Caché par défaut pour éviter le flash */
+            
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
+            transition: opacity 0.8s ease, visibility 0.8s; 
+        }
         .login-box { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--primary); padding: 3rem; border-radius: 20px; text-align: center; box-shadow: 0 0 50px rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); max-width: 400px; width: 90%; }
         .login-box h2 { margin-bottom: 1.5rem; color: white; font-weight: 700; }
         .login-box i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
@@ -234,7 +249,7 @@
             </div>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/mathis-paolini-859a48343/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/mathispaolini" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
         <div class="scroll-down"><div class="mouse"><div class="wheel"></div></div><span>SCROLL</span></div>
@@ -512,7 +527,7 @@
             <h2 style="color:white; margin-bottom:1rem;">Mentions Légales</h2>
             <p><strong>Éditeur du site :</strong><br>Mathis Paolini<br>Étudiant BTS SIO<br>Email : paolinimathis@gmail.com</p>
             <br>
-            <p><strong>Hébergement :</strong><br>Le site est hébergé par <strong>GitHub, Inc.</strong> (GitHub Pages)<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
+            <p><strong>Hébergement :</strong><br>Le site est hébergé par <strong>GitHub, Inc.</strong> (via GitHub Pages)<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
             <br>
             <p><strong>Données Personnelles (RGPD) :</strong><br>Les informations recueillies via le formulaire de contact sont transmises uniquement par email à Mathis Paolini via le service <strong>Formspree</strong>. Elles ne sont pas stockées en base de données et servent uniquement à répondre à votre demande. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données sur simple demande par email.</p>
         </div>
@@ -520,8 +535,17 @@
 
     <script>
         // --- 1. CONFIGURATION SÉCURISÉE ---
+        // Mettre à "true" pour activer le mot de passe. 
+        // L'affichage sera instantané (pas de flash) grâce au script ci-dessous.
         const SITE_LOCKED = false; 
         const PASSWORD_HASH = "028b569b20e6d5a166657def82c41d87948efd97ac00820fc55b6103b65adf70";
+
+        // --- GESTION INSTANTANÉE DU VERROUILLAGE (ANTI-FLASH) ---
+        const overlay = document.getElementById("login-overlay");
+        // Si activé ET que l'utilisateur n'est pas connecté, on l'affiche tout de suite
+        if (SITE_LOCKED && sessionStorage.getItem("auth") !== "true") {
+            overlay.style.display = "flex";
+        }
 
         // --- FONCTION DE HACHAGE ---
         async function sha256(message) {
@@ -540,6 +564,7 @@
 
             if (inputHash === PASSWORD_HASH) {
                 overlay.classList.add("hidden-overlay");
+                setTimeout(() => { overlay.style.display = "none"; }, 800); // Nettoyage après transition
                 sessionStorage.setItem("auth", "true");
             } else {
                 errorMsg.style.display = "block";
@@ -551,14 +576,9 @@
         // --- CHARGEMENT ---
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
-            const overlay = document.getElementById("login-overlay");
             
             preloader.classList.add('loaded');
             setTimeout(() => { preloader.style.display = 'none'; }, 500);
-
-            if (!SITE_LOCKED || sessionStorage.getItem("auth") === "true") {
-                overlay.style.display = "none";
-            }
 
             document.getElementById("passwordInput").addEventListener("keypress", function(event) {
                 if (event.key === "Enter") { checkPassword(); }
@@ -740,7 +760,4 @@
         }
     </script>
 </body>
-
 </html>
-
-
