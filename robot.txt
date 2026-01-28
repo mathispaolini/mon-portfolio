@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Indique à Google l'adresse exacte de ton site
+Sitemap: https://mathispaolini.github.io/mon-portfolio/sitemap.xml

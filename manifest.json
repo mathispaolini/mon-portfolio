@@ -1,0 +1,22 @@
+{
+  "name": "Mathis Paolini Portfolio",
+  "short_name": "Mathis Portfolio",
+  "description": "Portfolio de Mathis Paolini - BTS SIO SISR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
