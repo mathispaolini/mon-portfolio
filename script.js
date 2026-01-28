@@ -1,5 +1,5 @@
 // --- 1. CONFIGURATION SÉCURISÉE ---
-const SITE_LOCKED = false; // ACTIVÉ
+const SITE_LOCKED = true; // ACTIVÉ
 const PASSWORD_HASH = "028b569b20e6d5a166657def82c41d87948efd97ac00820fc55b6103b65adf70";
 
 // --- GESTION INSTANTANÉE DU VERROUILLAGE ---
@@ -48,11 +48,11 @@ window.addEventListener('load', () => {
     }
 });
 
-// --- GESTION DU FORMULAIRE AJAX (NOUVEAU) ---
+// --- FORMULAIRE AJAX (Évite le rechargement) ---
 const contactForm = document.getElementById("contact-form");
 if(contactForm) {
     contactForm.addEventListener("submit", async function(event) {
-        event.preventDefault(); // Empêche le rechargement de la page
+        event.preventDefault(); 
         const status = document.getElementById("form-status");
         const formData = new FormData(contactForm);
         const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -71,10 +71,10 @@ if(contactForm) {
                 status.innerHTML = '<div class="success-msg-form"><i class="fas fa-check-circle"></i> Merci ! Votre message a été envoyé avec succès.</div>';
                 contactForm.reset();
             } else {
-                status.innerHTML = '<div class="error-msg-form"><i class="fas fa-exclamation-triangle"></i> Oups ! Une erreur est survenue lors de l\'envoi.</div>';
+                status.innerHTML = '<div class="error-msg-form"><i class="fas fa-exclamation-triangle"></i> Oups ! Une erreur est survenue.</div>';
             }
         } catch (error) {
-            status.innerHTML = '<div class="error-msg-form"><i class="fas fa-exclamation-triangle"></i> Oups ! Vérifiez votre connexion internet.</div>';
+            status.innerHTML = '<div class="error-msg-form"><i class="fas fa-exclamation-triangle"></i> Oups ! Vérifiez votre connexion.</div>';
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Envoyer';
@@ -191,7 +191,6 @@ class Particle {
     update() {
         if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
         if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
-        
         if (window.innerWidth > 768) {
             let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx*dx + dy*dy);
             if (distance < mouse.radius + this.size) {
@@ -209,7 +208,6 @@ function init() {
     particlesArray = [];
     let numberOfParticles = (canvas.height * canvas.width) / 9000;
     if (window.innerWidth < 768) { numberOfParticles = (canvas.height * canvas.width) / 25000; }
-
     for (let i = 0; i < numberOfParticles; i++) {
         let size = (Math.random() * 3) + 1;
         let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
@@ -226,7 +224,6 @@ function animate() {
 
 function connect() {
     if (window.innerWidth < 768) return; 
-
     for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
@@ -261,5 +258,4 @@ function activateMatrixMode() {
     document.documentElement.style.setProperty('--card-glass', 'rgba(0, 50, 0, 0.8)');
     document.body.style.fontFamily = "'Courier New', monospace";
     particlesArray.forEach(p => p.color = '#00ff00');
-
 }
