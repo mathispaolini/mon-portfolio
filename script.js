@@ -2,14 +2,13 @@
 const SITE_LOCKED = true; // ACTIVÉ
 const PASSWORD_HASH = "028b569b20e6d5a166657def82c41d87948efd97ac00820fc55b6103b65adf70";
 
-// --- GESTION DU VERROUILLAGE ---
+// --- GESTION INSTANTANÉE DU VERROUILLAGE ---
 const overlay = document.getElementById("login-overlay");
 if (SITE_LOCKED && sessionStorage.getItem("auth") !== "true") {
-    // Force l'affichage pour éviter le bug visuel
     overlay.style.display = "flex";
 }
 
-// --- HACHAGE ---
+// --- FONCTION DE HACHAGE ---
 async function sha256(message) {
     const msgBuffer = new TextEncoder().encode(message);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -17,7 +16,7 @@ async function sha256(message) {
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// --- VERIFICATION MDP ---
+// --- VERIFICATION DU MOT DE PASSE ---
 async function checkPassword() {
     const input = document.getElementById("passwordInput").value;
     const errorMsg = document.getElementById("errorMsg");
@@ -35,7 +34,7 @@ async function checkPassword() {
     }
 }
 
-// --- CHARGEMENT ---
+// --- CHARGEMENT & EVENTS ---
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     preloader.classList.add('loaded');
@@ -49,7 +48,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// --- FORMULAIRE AJAX ---
+// --- FORMULAIRE AJAX (Évite le rechargement) ---
 const contactForm = document.getElementById("contact-form");
 if(contactForm) {
     contactForm.addEventListener("submit", async function(event) {
@@ -121,7 +120,7 @@ backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 
 const menuToggle = document.querySelector('.menu-toggle');
 const navUl = document.querySelector('nav ul');
 
-// MENU MOBILE
+// --- GESTION DU MENU MOBILE ---
 menuToggle.addEventListener('click', () => {
     navUl.classList.toggle('active');
     menuToggle.innerHTML = navUl.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
@@ -158,7 +157,6 @@ function type() {
 }
 document.addEventListener('DOMContentLoaded', type);
 
-// EFFET SOURIS SUR CARTES
 const addMouseEffect = (containerId) => {
      const container = document.getElementById(containerId);
      if(container){
@@ -172,7 +170,6 @@ const addMouseEffect = (containerId) => {
 }
 addMouseEffect("cards-container"); addMouseEffect("cards-container-profil"); addMouseEffect("cards-container-docs"); addMouseEffect("cards-container-veille");
 
-// MODAL MENTIONS LEGALES
 const modal = document.getElementById("legal-modal");
 const btn = document.getElementById("open-legal");
 const span = document.getElementsByClassName("close-modal")[0];
@@ -180,7 +177,7 @@ btn.onclick = function() { modal.style.display = "block"; }
 span.onclick = function() { modal.style.display = "none"; }
 window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
-// PARTICLES (FOND BLEU)
+// --- SCRIPT PARTICLES ---
 const canvas = document.getElementById('canvas1'); const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let particlesArray; let mouse = { x: null, y: null, radius: (canvas.height/80) * (canvas.width/80) }
@@ -243,7 +240,7 @@ window.addEventListener('resize', function() { canvas.width = innerWidth; canvas
 window.addEventListener('mouseout', function() { mouse.x = undefined; mouse.y = undefined; });
 init(); animate();
 
-// KONAMI CODE
+// --- KONAMI CODE (EASTER EGG) ---
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let konamiCursor = 0;
 document.addEventListener('keydown', function(e) {
