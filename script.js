@@ -1,8 +1,8 @@
 // --- 1. CONFIGURATION SÉCURISÉE ---
-const SITE_LOCKED = true; // ACTIVÉ
+const SITE_LOCKED = false; // ACTIVÉ
 const PASSWORD_HASH = "028b569b20e6d5a166657def82c41d87948efd97ac00820fc55b6103b65adf70";
 
-// --- GESTION INSTANTANÉE DU VERROUILLAGE ---
+// --- GESTION DU VERROUILLAGE ---
 const overlay = document.getElementById("login-overlay");
 if (SITE_LOCKED && sessionStorage.getItem("auth") !== "true") {
     overlay.style.display = "flex";
@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// --- FORMULAIRE AJAX (Évite le rechargement) ---
+// --- FORMULAIRE AJAX ---
 const contactForm = document.getElementById("contact-form");
 if(contactForm) {
     contactForm.addEventListener("submit", async function(event) {
@@ -120,7 +120,7 @@ backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 
 const menuToggle = document.querySelector('.menu-toggle');
 const navUl = document.querySelector('nav ul');
 
-// --- GESTION DU MENU MOBILE ---
+// --- MENU MOBILE ---
 menuToggle.addEventListener('click', () => {
     navUl.classList.toggle('active');
     menuToggle.innerHTML = navUl.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
@@ -177,7 +177,7 @@ btn.onclick = function() { modal.style.display = "block"; }
 span.onclick = function() { modal.style.display = "none"; }
 window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
-// --- SCRIPT PARTICLES ---
+// --- PARTICLES ---
 const canvas = document.getElementById('canvas1'); const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let particlesArray; let mouse = { x: null, y: null, radius: (canvas.height/80) * (canvas.width/80) }
@@ -240,7 +240,15 @@ window.addEventListener('resize', function() { canvas.width = innerWidth; canvas
 window.addEventListener('mouseout', function() { mouse.x = undefined; mouse.y = undefined; });
 init(); animate();
 
-// --- KONAMI CODE (EASTER EGG) ---
+// --- TILT 3D INIT ---
+VanillaTilt.init(document.querySelectorAll(".card"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+});
+
+// --- KONAMI CODE ---
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let konamiCursor = 0;
 document.addEventListener('keydown', function(e) {
