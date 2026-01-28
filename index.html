@@ -4,420 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mathis Paolini.</title>
-    <meta name="description" content="Portfolio de Mathis Paolini, étudiant en BTS SIO SISR à Caen. Expert en administration systèmes, réseaux Cisco et cybersécurité. Recherche Alternance.">
-    <meta name="author" content="Mathis Paolini">
+    <title>Mathis.</title>
+    <meta name="description" content="Portfolio de Mathis Paolini, expert en cybersécurité et réseaux.">
     <link rel="canonical" href="https://mathispaolini.github.io/mon-portfolio/">
     <meta name="theme-color" content="#020617">
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mathispaolini.github.io/mon-portfolio/">
-    <meta property="og:title" content="Mathis Paolini - Portfolio Technicien SIO">
-    <meta property="og:description" content="Découvrez mes projets en administration réseau, virtualisation et cybersécurité.">
-    <meta property="og:image" content="https://mathispaolini.github.io/mon-portfolio/ma-photo.jpg">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mathis Paolini - Portfolio">
-    <meta name="twitter:description" content="Étudiant BTS SIO SISR. Expert Réseaux & Systèmes.">
-    <meta name="twitter:image" content="https://mathispaolini.github.io/mon-portfolio/ma-photo.jpg">
-
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Mathis." />
     <link rel="manifest" href="site.webmanifest" />
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mathis Paolini",
-      "jobTitle": "Étudiant BTS SIO SISR",
-      "url": "https://mathispaolini.github.io/mon-portfolio",
-      "image": "https://mathispaolini.github.io/mon-portfolio/ma-photo.jpg",
-      "sameAs": ["https://www.linkedin.com/in/mathis-paolini-859a48343/", "https://github.com/mathispaolini"],
-      "knowsAbout": ["Administration Système", "Réseaux Cisco", "Cybersécurité", "Virtualisation", "Linux"]
-    }
-    </script>
+    <link rel="stylesheet" href="style.css?v=3"> 
 </head>
 <body>
 
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
     <div id="login-overlay">
         <div class="login-box">
-            <i class="fas fa-user-lock"></i>
-            <h2>Accès Restreint</h2>
-            <p style="color: #94a3b8; margin-bottom: 1.5rem;">Veuillez entrer le mot de passe pour accéder au portfolio.</p>
-            <input type="password" id="passwordInput" class="login-input" placeholder="Mot de passe" aria-label="Mot de passe">
-            <button onclick="checkPassword()" class="login-btn">Déverrouiller</button>
-            <p id="errorMsg" class="error-msg">Mot de passe incorrect</p>
-            <p style="font-size: 0.75rem; color: #475569; margin-top: 20px; font-style: italic;">
-                <i class="fas fa-info-circle"></i> Note technique : Protection Client-Side (JS) à but démonstratif.
+            <i class="fas fa-fingerprint"></i>
+            <h2>Accès Sécurisé</h2>
+            <p style="color: #94a3b8; margin-bottom: 1.5rem;">Authentification requise.</p>
+            <input type="password" id="passwordInput" class="login-input" placeholder="Entrez le code d'accès">
+            <button onclick="checkPassword()" class="login-btn">Initialiser la connexion</button>
+            <p id="errorMsg" class="error-msg">Accès refusé</p>
+            <p style="font-size: 0.7rem; color: #475569; margin-top: 20px; font-family: monospace;">
+                [SYSTEM] : Protection Client-Side active.
             </p>
         </div>
     </div>
 
     <canvas id="canvas1"></canvas>
-    <div id="preloader"><div class="loader-text">MATHIS.</div></div>
-    <div id="back-to-top" title="Retour en haut" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></div>
     <div id="progress-container"><div id="progress-bar"></div></div>
 
     <header id="navbar">
         <div class="logo-container">
-            <span class="logo-text">Mathis Paolini</span>
-            <span class="logo-badge">PORTFOLIO</span>
+            <span class="logo-text">Mathis.P</span>
+            <span class="logo-badge">SISR</span>
         </div>
-        <div class="menu-toggle" aria-label="Menu Mobile"><i class="fas fa-bars"></i></div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
         <nav>
             <ul>
-                <li><a href="#accueil" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="#apropos" class="nav-link"><i class="fas fa-user"></i> À Propos</a></li>
-                <li><a href="#competences" class="nav-link"><i class="fas fa-code"></i> Compétences</a></li>
-                <li><a href="#veille" class="nav-link"><i class="fas fa-rss"></i> Veille</a></li>
-                <li><a href="#docs-techniques" class="nav-link"><i class="fas fa-file-pdf"></i> Procédures</a></li>
-                <li><a href="#parcours" class="nav-link"><i class="fas fa-route"></i> Parcours</a></li>
-                <li><a href="#contact" class="btn-header nav-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
+                <li><a href="#accueil" class="nav-link hover-target">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link hover-target">Profil</a></li>
+                <li><a href="#competences" class="nav-link hover-target">Stack</a></li>
+                <li><a href="#docs-techniques" class="nav-link hover-target">Projets</a></li>
+                <li><a href="#contact" class="btn-header nav-link hover-target">Me Contacter</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="accueil" class="hero">
-        <div class="reveal" style="display:flex; flex-direction:column; align-items:center;">
-            <div class="status-badge"><div class="status-dot"></div>Disponible pour Alternance</div>
-            <div class="profile-avatar"><img src="ma-photo.jpg" alt="Mathis Paolini" decoding="async" width="180" height="180"></div>
+        <div class="reveal">
+            <div class="status-badge"><div class="status-dot"></div>Open to Work</div>
+            <div class="profile-avatar hover-target">
+                <img src="ma-photo.jpg" alt="Mathis Paolini" decoding="async">
+            </div>
             
             <h1 class="glitch" data-text="Mathis Paolini">Mathis <span>Paolini</span></h1>
             
-            <div class="typewriter">> <span id="typing-text"></span></div>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; text-align:center;">
-                Étudiant en BTS SIO (SISR). Je conçois des architectures réseaux sécurisées et j'administre des systèmes complexes.
+            <div class="typewriter">> <span id="typing-text"></span><span class="cursor-blink">|</span></div>
+            
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                Architecte réseau en devenir & Passionné de Cybersécurité.
             </p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
-                <a href="#apropos" class="btn-header" style="text-decoration:none;">En savoir plus</a>
-                <a href="PAOLINI_Mathis_CV.pdf" download class="btn-header" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); box-shadow: none;" aria-label="Télécharger le CV">
-                    <i class="fas fa-download"></i> Télécharger CV
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <a href="#docs-techniques" class="btn-header hover-target">Voir mes Travaux</a>
+                <a href="PAOLINI_Mathis_CV.pdf" download class="btn-header hover-target" style="background: rgba(255,255,255,0.05); box-shadow: none; border: 1px solid rgba(255,255,255,0.1);">
+                    <i class="fas fa-download"></i> CV
                 </a>
             </div>
+            
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/mathis-paolini-859a48343/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/mathispaolini" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mathis-paolini-859a48343/" target="_blank" class="hover-target"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/mathispaolini" target="_blank" class="hover-target"><i class="fab fa-github"></i></a>
             </div>
         </div>
-        <div class="scroll-down"><div class="mouse"><div class="wheel"></div></div><span>SCROLL</span></div>
     </section>
 
     <div class="marquee-container">
         <div class="marquee-content">
             <div class="tech-item"><i class="fab fa-windows"></i> Windows Server</div>
-            <div class="tech-item"><i class="fab fa-linux"></i> Linux Debian</div>
-            <div class="tech-item"><i class="fas fa-network-wired"></i> Cisco Packet Tracer</div>
-            <div class="tech-item"><i class="fas fa-server"></i> VmWare ESXi</div>
-            <div class="tech-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div>
-            <div class="tech-item"><i class="fab fa-php"></i> PHP & Web</div>
-            <div class="tech-item"><i class="fas fa-database"></i> SQL</div>
+            <div class="tech-item"><i class="fab fa-linux"></i> Debian</div>
+            <div class="tech-item"><i class="fas fa-network-wired"></i> Cisco</div>
+            <div class="tech-item"><i class="fas fa-shield-alt"></i> Cybersec</div>
+            <div class="tech-item"><i class="fas fa-server"></i> VMware</div>
             <div class="tech-item"><i class="fab fa-docker"></i> Docker</div>
             <div class="tech-item"><i class="fab fa-windows"></i> Windows Server</div>
-            <div class="tech-item"><i class="fab fa-linux"></i> Linux Debian</div>
-            <div class="tech-item"><i class="fas fa-network-wired"></i> Cisco Packet Tracer</div>
-            <div class="tech-item"><i class="fas fa-server"></i> VmWare ESXi</div>
-            <div class="tech-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div>
-            <div class="tech-item"><i class="fab fa-php"></i> PHP & Web</div>
-            <div class="tech-item"><i class="fas fa-database"></i> SQL</div>
+            <div class="tech-item"><i class="fab fa-linux"></i> Debian</div>
+            <div class="tech-item"><i class="fas fa-network-wired"></i> Cisco</div>
+            <div class="tech-item"><i class="fas fa-shield-alt"></i> Cybersec</div>
+            <div class="tech-item"><i class="fas fa-server"></i> VMware</div>
             <div class="tech-item"><i class="fab fa-docker"></i> Docker</div>
         </div>
     </div>
 
-    <section id="apropos">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
-            <h2>À Propos de <span>Moi</span></h2>
-        </div>
-        <div class="about-text-box reveal">
-            <p>
-                Actuellement étudiant en <strong>BTS SIO (Option SISR)</strong> à CaenSup Sainte-Ursule, je me passionne pour l'administration système et la cybersécurité. Mon parcours m'a permis d'acquérir des bases solides, renforcées par mes stages pratiques au <strong>Centre François Baclesse</strong> et chez <strong>B'Plast</strong>.
-            </p>
-            <br>
-            <p>
-                Mon ambition est claire : intégrer la <strong>Licence STS Sécurité des réseaux et Cybersécurité</strong> en alternance dès septembre prochain. Curieux, rigoureux et autonome, je souhaite mettre mes compétences techniques au service de la protection de vos infrastructures.
-            </p>
-        </div>
-        <div class="procedures-grid" id="cards-container-profil">
-            <div class="card reveal">
-                <h3><i class="fas fa-user-check" style="color:var(--primary)"></i> Soft Skills</h3>
-                <ul class="profile-list" style="margin-top:1rem; list-style:none;">
-                    <li><i class="fas fa-check"></i> Autonomie & Recherche</li>
-                    <li><i class="fas fa-check"></i> Rigueur & Organisation</li>
-                    <li><i class="fas fa-check"></i> Esprit d'analyse</li>
-                </ul>
-            </div>
-            <div class="card reveal">
-                <h3><i class="fas fa-globe" style="color:var(--secondary)"></i> Langues & Mobilité</h3>
-                <ul class="profile-list" style="margin-top:1rem; list-style:none;">
-                    <li><i class="fas fa-language"></i> Anglais (B2)</li>
-                    <li><i class="fas fa-language"></i> Espagnol (A2)</li>
-                    <li><i class="fas fa-car"></i> Permis B + Véhicule</li>
-                </ul>
-            </div>
-            <div class="card reveal">
-                <h3><i class="fas fa-heart" style="color:#10b981"></i> Centres d'intérêts</h3>
-                <ul class="profile-list" style="margin-top:1rem; list-style:none;">
-                    <li><i class="fas fa-basketball-ball"></i> Sports collectifs</li>
-                    <li><i class="fas fa-running"></i> Randonnée</li>
-                    <li><i class="fas fa-plane"></i> Voyages</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <section id="competences">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-            <h2>Mes <span>Compétences</span></h2>
-            <p style="color: var(--text-muted);">Savoir-faire technique acquis en formation et en stage.</p>
+        <div class="section-header reveal">
+            <h2>Mon <span>Arsenal</span></h2>
         </div>
         <div class="procedures-grid" id="cards-container">
-            <div class="card reveal">
+            <div class="card reveal hover-target">
                 <div class="card-content">
                     <div class="icon-box"><i class="fas fa-network-wired"></i></div>
-                    <h3>Réseau & Cisco/HP</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        Configuration de switchs/routeurs, VLANs, routage inter-VLAN, ACLs. Maîtrise de Packet Tracer.
-                    </p>
+                    <h3>Réseau & Infra</h3>
+                    <p>Architecture Cisco, VLANs, Routage, ACLs, Switching.</p>
                 </div>
             </div>
-            <div class="card reveal">
+            <div class="card reveal hover-target">
                 <div class="card-content">
-                    <div class="icon-box" style="color: var(--secondary); background: rgba(168, 85, 247, 0.1); border-color:rgba(168, 85, 247, 0.2);"><i class="fab fa-linux"></i></div>
-                    <h3>Systèmes & Linux</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        Administration Debian/Ubuntu (CLI, Bash). Serveurs Web (Apache/Nginx) et gestion des droits fichiers.
-                    </p>
+                    <div class="icon-box" style="color:var(--secondary); border-color:var(--secondary);"><i class="fab fa-linux"></i></div>
+                    <h3>Système</h3>
+                    <p>Administration Linux (Debian/Ubuntu) & Windows Server (AD/GPO).</p>
                 </div>
             </div>
-            <div class="card reveal">
+            <div class="card reveal hover-target">
                 <div class="card-content">
-                    <div class="icon-box" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color:rgba(16, 185, 129, 0.2);"><i class="fas fa-server"></i></div>
-                    <h3>Virtualisation</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        Création et gestion de machines virtuelles sous VMware ESXi, Hyper-V et Proxmox. Allocation des ressources.
-                    </p>
-                </div>
-            </div>
-            <div class="card reveal">
-                <div class="card-content">
-                    <div class="icon-box" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1); border-color:rgba(251, 191, 36, 0.2);"><i class="fas fa-certificate"></i></div>
-                    <h3>Certifications</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        <strong>ANSSI - SecNumAcadémie</strong><br>
-                        MOOC de sensibilisation à la cybersécurité et hygiène informatique.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="veille" style="background: rgba(255,255,255,0.01);">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-            <h2>Veille <span>Technologique</span></h2>
-            <p style="color: var(--text-muted);">Les sujets et outils que j'utilise pour rester à jour.</p>
-        </div>
-        <div class="procedures-grid" id="cards-container-veille">
-            <div class="card reveal">
-                <div class="card-content">
-                    <div class="icon-box" style="color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Sujets Suivis</h3>
-                    <ul class="profile-list" style="margin-top:1rem; list-style:none;">
-                        <li><i class="fas fa-rss" style="color:#ef4444;"></i> Menaces Cyber (Ransomware)</li>
-                        <li><i class="fas fa-rss" style="color:#ef4444;"></i> Failles Zéro-Day</li>
-                        <li><i class="fas fa-rss" style="color:#ef4444;"></i> Évolution Cloud (Azure/AWS)</li>
-                    </ul>
-                </div>
-            </div>
-             <div class="card reveal">
-                <div class="card-content">
-                    <div class="icon-box" style="color: #3b82f6; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2);"><i class="fas fa-broadcast-tower"></i></div>
-                    <h3>Mes Sources</h3>
-                    <ul class="profile-list" style="margin-top:1rem; list-style:none;">
-                        <li><i class="fas fa-link" style="color:#3b82f6;"></i> CERT-FR & ANSSI</li>
-                        <li><i class="fab fa-linkedin" style="color:#3b82f6;"></i> Experts Cyber LinkedIn</li>
-                        <li><i class="fas fa-newspaper" style="color:#3b82f6;"></i> LeMagIT & ZDNet</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card reveal">
-                <div class="card-content">
-                    <div class="icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.2);"><i class="fas fa-tools"></i></div>
-                    <h3>Outils de Veille</h3>
-                    <p style="color: var(--text-muted); margin-bottom:1rem;">Outils utilisés pour centraliser l'information :</p>
-                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                        <span style="padding:5px 15px; background:rgba(255,255,255,0.05); border-radius:20px; font-size:0.9rem;">Feedly</span>
-                        <span style="padding:5px 15px; background:rgba(255,255,255,0.05); border-radius:20px; font-size:0.9rem;">Pocket</span>
-                        <span style="padding:5px 15px; background:rgba(255,255,255,0.05); border-radius:20px; font-size:0.9rem;">Newsletter</span>
-                    </div>
+                    <div class="icon-box" style="color:#10b981; border-color:#10b981;"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Sécurité</h3>
+                    <p>Hardening, Firewalling, Analyse de logs, Sensibilisation.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="docs-techniques">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-            <h2>Mes <span>Procédures & TP</span></h2>
-            <p style="color: var(--text-muted);">Documentation complète de mes réalisations.</p>
+        <div class="section-header reveal">
+            <h2>Mes <span>Missions</span></h2>
         </div>
-        <div class="procedures-grid" id="cards-container-docs">
-            <div class="card reveal">
+        <div class="procedures-grid">
+            <div class="card reveal hover-target">
                 <div class="card-content">
-                    <img src="thumb_glpi.jpg" alt="Interface GLPI" class="card-image">
-                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> GLPI & OCS</h3>
-                    <p style="margin: 1rem 0; color: var(--text-muted);">Déploiement solution de gestion de parc et ticketing pour 50+ postes.</p>
-                    <div class="card-tags">
-                        <span class="tech-tag">Debian</span>
-                        <span class="tech-tag">Apache</span>
-                        <span class="tech-tag">ITSM</span>
-                    </div>
-                    <a href="proc_glpi.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                    <img src="thumb_glpi.jpg" alt="GLPI" class="card-image">
+                    <h3>GLPI & OCS Inventory</h3>
+                    <p>Gestion de parc informatique automatisée.</p>
+                    <div class="card-tags"><span class="tech-tag">ITSM</span><span class="tech-tag">Web</span></div>
+                    <a href="proc_glpi.pdf" target="_blank" class="btn-link">Accéder au dossier <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="card reveal">
+            <div class="card reveal hover-target">
                 <div class="card-content">
-                    <img src="thumb_vlan.jpg" alt="Schéma VLAN" class="card-image">
-                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> VLAN Cisco</h3>
-                    <p style="margin: 1rem 0; color: var(--text-muted);">Segmentation réseau, routage inter-VLAN (ROAS) et port-security.</p>
-                    <div class="card-tags">
-                        <span class="tech-tag">Cisco IOS</span>
-                        <span class="tech-tag">Switching</span>
-                        <span class="tech-tag">Securité</span>
-                    </div>
-                    <a href="proc_vlan.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                    <img src="thumb_vlan.jpg" alt="Cisco" class="card-image">
+                    <h3>Architecture VLAN</h3>
+                    <p>Segmentation et sécurisation niveau 2.</p>
+                    <div class="card-tags"><span class="tech-tag">Cisco</span><span class="tech-tag">Security</span></div>
+                    <a href="proc_vlan.pdf" target="_blank" class="btn-link">Accéder au dossier <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="card reveal">
+            <div class="card reveal hover-target">
                 <div class="card-content">
-                    <img src="thumb_ad.jpg" alt="Active Directory" class="card-image">
-                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> Active Directory</h3>
-                    <p style="margin: 1rem 0; color: var(--text-muted);">Contrôleur de domaine, structuration OUs et déploiement GPO.</p>
-                    <div class="card-tags">
-                        <span class="tech-tag">Win Server</span>
-                        <span class="tech-tag">AD DS</span>
-                        <span class="tech-tag">DNS/DHCP</span>
-                    </div>
-                    <a href="proc_ad.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-            <div class="card reveal">
-                <div class="card-content">
-                    <img src="thumb_web.jpg" alt="Serveur Web" class="card-image">
-                    <h3><i class="far fa-file-pdf" style="color: #ef4444; margin-right:10px;"></i> Serveur Web</h3>
-                    <p style="margin: 1rem 0; color: var(--text-muted);">Mise en production stack LAMP sécurisée et VirtualHosts.</p>
-                    <div class="card-tags">
-                        <span class="tech-tag">Linux</span>
-                        <span class="tech-tag">Web</span>
-                        <span class="tech-tag">Bash</span>
-                    </div>
-                    <a href="proc_web.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="parcours">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
-            <h2>Mon <span>Parcours</span></h2>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">Déc 2025 - Fév 2026</span>
-                    <h3>Stage Informatique - B'Plast (Vire)</h3>
-                    <p style="color: var(--text-muted);">Configuration de Switchs, supervision réseau et préparation de postes de travail.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">Depuis Juin 2025</span>
-                    <h3>Employé Polyvalent - LIDL (Thury-Harcourt)</h3>
-                    <p style="color: var(--text-muted);">Mise en rayon, tenue de caisse. Développement de l'autonomie et de la rigueur.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">Mai 2025 - Juin 2025</span>
-                    <h3>Stage Technicien - Centre François Baclesse</h3>
-                    <p style="color: var(--text-muted);">Administration Windows Server, Support N1/N2 et installation Wi-Fi.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">Depuis 2024</span>
-                    <h3>BTS SIO (Option SISR)</h3>
-                    <p style="color: var(--text-muted);">CaenSup Sainte-Ursule. Solutions d'Infrastructures, Systèmes et Réseaux.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">2021 - 2024</span>
-                    <h3>Baccalauréat STMG (Option SIG)</h3>
-                    <p style="color: var(--text-muted);">Lycée Jean Rostand (Caen). Systèmes d'information de Gestion.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-content">
-                    <span class="date">2021</span>
-                    <h3>Stage Découverte - Coulidoor (Verson)</h3>
-                    <p style="color: var(--text-muted);">Comptabilité sur Excel et classement de documents.</p>
+                    <img src="thumb_ad.jpg" alt="AD" class="card-image">
+                    <h3>Active Directory</h3>
+                    <p>Centralisation des identités et droits.</p>
+                    <div class="card-tags"><span class="tech-tag">Microsoft</span><span class="tech-tag">Identity</span></div>
+                    <a href="proc_ad.pdf" target="_blank" class="btn-link">Accéder au dossier <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
-            <h2>Me <span>Contacter</span></h2>
+        <div class="section-header reveal">
+            <h2>Initialiser <span>Contact</span></h2>
         </div>
         <div class="contact-box reveal">
             <form id="contact-form" action="https://formspree.io/f/mwvvgbrb" method="POST">
-                <input type="text" name="_gotcha" style="display:none">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <input type="text" name="name" placeholder="Votre Nom" required aria-label="Nom">
-                    <input type="email" name="email" placeholder="Votre Email" required aria-label="Email">
+                    <input type="text" name="name" placeholder="Identité" required class="hover-target">
+                    <input type="email" name="email" placeholder="Canal de réponse (Email)" required class="hover-target">
                 </div>
-                <input type="text" name="subject" placeholder="Sujet" required aria-label="Sujet">
-                <textarea name="message" rows="5" placeholder="Votre message..." required aria-label="Message"></textarea>
-                <button type="submit">Envoyer</button>
+                <textarea name="message" rows="5" placeholder="Transmission de données..." required class="hover-target"></textarea>
+                <button type="submit" class="hover-target">Envoyer le signal</button>
             </form>
             <div id="form-status"></div>
-            
-            <div style="text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height:1.8;">
-                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> paolinimathis@gmail.com</p>
-                <p><i class="fas fa-phone" style="color:var(--primary)"></i> 07 77 64 13 91</p>
-                <p><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> Esquay-Notre-Dame (14210), Normandie</p>
-            </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--border); font-size: 0.9rem;">
-        &copy; <span id="year">2026</span> Mathis Paolini. Portfolio BTS SIO.<br>
-        <span id="open-legal" class="legal-link">Mentions Légales</span><br><br>
-        <a href="https://github.com/mathispaolini/mon-portfolio" target="_blank" style="font-size: 0.8rem; color: #475569; text-decoration: none;">
-            <i class="fab fa-github"></i> Voir le code source de ce site
+    <footer>
+        <p>&copy; 2026 Mathis Paolini. <span style="opacity:0.5;">/// SISR STUDENT</span></p>
+        <a href="https://github.com/mathispaolini/mon-portfolio" class="hover-target" style="font-size:0.8rem; color:#64748b; text-decoration:none;">
+            <i class="fas fa-code"></i> Source Code
         </a>
     </footer>
 
-    <div id="legal-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="color:white; margin-bottom:1rem;">Mentions Légales</h2>
-            <p><strong>Éditeur du site :</strong><br>Mathis Paolini<br>Étudiant BTS SIO<br>Email : paolinimathis@gmail.com</p>
-            <br>
-            <p><strong>Hébergement :</strong><br>Le site est hébergé par <strong>GitHub, Inc.</strong> (via GitHub Pages)<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
-            <br>
-            <p><strong>Données Personnelles (RGPD) :</strong><br>Les informations recueillies via le formulaire de contact sont transmises uniquement par email à Mathis Paolini via le service <strong>Formspree</strong>.</p>
-        </div>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
