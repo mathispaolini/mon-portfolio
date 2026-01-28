@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Mathis Paolini - Technicien Systèmes & Réseaux | Portfolio</title>
+    <title>Mathis.</title>
     <meta name="description" content="Portfolio de Mathis Paolini, étudiant en BTS SIO SISR à Caen. Expert en administration systèmes, réseaux Cisco et cybersécurité. Recherche Alternance.">
     <meta name="author" content="Mathis Paolini">
     <link rel="canonical" href="https://mathispaolini.github.io/mon-portfolio/">
@@ -30,9 +30,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
-    <script type="application/ld+json">
+    <link rel="stylesheet" href="style.css"> <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -55,7 +53,6 @@
             <input type="password" id="passwordInput" class="login-input" placeholder="Mot de passe" aria-label="Mot de passe">
             <button onclick="checkPassword()" class="login-btn">Déverrouiller</button>
             <p id="errorMsg" class="error-msg">Mot de passe incorrect</p>
-            
             <p style="font-size: 0.75rem; color: #475569; margin-top: 20px; font-style: italic;">
                 <i class="fas fa-info-circle"></i> Note technique : Protection Client-Side (JS) à but démonstratif.
             </p>
@@ -89,7 +86,7 @@
     <section id="accueil" class="hero">
         <div class="reveal" style="display:flex; flex-direction:column; align-items:center;">
             <div class="status-badge"><div class="status-dot"></div>Disponible pour Alternance</div>
-            <div class="profile-avatar"><img src="ma-photo.jpg" alt="Mathis Paolini" loading="lazy" width="180" height="180"></div>
+            <div class="profile-avatar"><img src="ma-photo.jpg" alt="Mathis Paolini" decoding="async" width="180" height="180"></div>
             <h1>Mathis <span>Paolini</span></h1>
             <div class="typewriter">> <span id="typing-text"></span></div>
             <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; text-align:center;">
@@ -97,7 +94,7 @@
             </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
                 <a href="#apropos" class="btn-header" style="text-decoration:none;">En savoir plus</a>
-                <a href="PAOLINI_Mathis_CV.pdf" download class="btn-header" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); box-shadow: none;" aria-label="Télécharger CV">
+                <a href="PAOLINI_Mathis_CV.pdf" download class="btn-header" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); box-shadow: none;" aria-label="Télécharger le CV">
                     <i class="fas fa-download"></i> Télécharger CV
                 </a>
             </div>
@@ -276,7 +273,7 @@
                         <span class="tech-tag">Apache</span>
                         <span class="tech-tag">ITSM</span>
                     </div>
-                    <a href="proc_glpi.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                    <a href="proc_glpi.pdf" target="_blank" class="btn-link" aria-label="Lire la procédure GLPI">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
             <div class="card reveal">
@@ -289,7 +286,7 @@
                         <span class="tech-tag">Switching</span>
                         <span class="tech-tag">Securité</span>
                     </div>
-                    <a href="proc_vlan.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                    <a href="proc_vlan.pdf" target="_blank" class="btn-link" aria-label="Lire la procédure VLAN">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
             <div class="card reveal">
@@ -302,7 +299,7 @@
                         <span class="tech-tag">AD DS</span>
                         <span class="tech-tag">DNS/DHCP</span>
                     </div>
-                    <a href="proc_ad.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                    <a href="proc_ad.pdf" target="_blank" class="btn-link" aria-label="Lire la procédure Active Directory">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
             <div class="card reveal">
@@ -315,7 +312,7 @@
                         <span class="tech-tag">Web</span>
                         <span class="tech-tag">Bash</span>
                     </div>
-                    <a href="proc_web.pdf" target="_blank" class="btn-link">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
+                    <a href="proc_web.pdf" target="_blank" class="btn-link" aria-label="Lire la procédure Serveur Web">Ouvrir le PDF <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -398,7 +395,10 @@
 
     <footer style="text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--border); font-size: 0.9rem;">
         &copy; <span id="year">2026</span> Mathis Paolini. Portfolio BTS SIO.<br>
-        <span id="open-legal" class="legal-link">Mentions Légales</span>
+        <span id="open-legal" class="legal-link">Mentions Légales</span><br><br>
+        <a href="https://github.com/mathispaolini/mon-portfolio" target="_blank" style="font-size: 0.8rem; color: #475569; text-decoration: none;">
+            <i class="fab fa-github"></i> Voir le code source de ce site
+        </a>
     </footer>
 
     <div id="legal-modal" class="modal">
