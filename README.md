@@ -8,7 +8,7 @@ Bienvenue sur le dépôt de mon portfolio personnel. Ce site web a été conçu 
 
 ## 🚀 Démo en ligne
 Le site est accessible directement via GitHub Pages :
-👉 **[Lien vers le site](https://mathispaolini.github.io/mon-portfolio/)** *(Remplace ce lien par le vrai lien une fois activé)*
+👉 **[Lien vers le site](https://mathispaolini.github.io/mon-portfolio/)** 
 
 ## 🛠️ Stack Technique
 
