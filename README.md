@@ -1,64 +1,49 @@
 # 🌐 Portfolio - Mathis Paolini
 
-![Statut](https://img.shields.io/badge/Statut-En_Recherche_d'Alternance-success?style=for-the-badge)
-![Tech](https://img.shields.io/badge/Stack-HTML_CSS_JS-blue?style=for-the-badge)
-![Profile](https://img.shields.io/badge/Profil-SISR_Cybersécurité-8a2be2?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-En_Développement-blue)
+![Version](https://img.shields.io/badge/Version-1.0-green)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-> **Bienvenue sur le code source de mon portfolio.**
-> Ce projet vitrine démontre mes compétences en développement web et présente mon parcours en tant que technicien SIO.
+Bienvenue sur le dépôt de mon portfolio personnel. Ce site web a été conçu pour présenter mon parcours en **BTS SIO (Option SISR)**, mes compétences en administration systèmes & réseaux, ainsi que mes projets et certifications.
 
----
-
-## 🚀 Accès Rapide
-
-Si le site ne s'affiche pas correctement, voici les liens directs :
-
-- **🔗 VOIR LE SITE EN LIGNE :** [mathispaolini.github.io/mon-portfolio](https://mathispaolini.github.io/mon-portfolio/)
-- **📄 Télécharger mon CV :** [Lien direct vers le PDF](PAOLINI_Mathis_CV.pdf)
-- **💼 Mon LinkedIn :** [Mathis Paolini](https://www.linkedin.com/in/mathis-paolini-859a48343/)
-
----
-
-## 🖼️ Aperçu du projet
-
-Ce portfolio a été conçu avec une approche **"Cyberpunk / Glassmorphism"** pour refléter mon intérêt pour la cybersécurité et les réseaux.
-
-![Aperçu du Portfolio](image_cebaf0.jpg)
-*(Note : L'interface est responsive et adaptée aux mobiles)*
-
-### ✨ Fonctionnalités Clés & Design
-Ce n'est pas juste un site statique, c'est une expérience utilisateur interactive :
-
-* **⚡ Effet "Glitch" Cyberpunk :** Animation CSS personnalisée sur le titre principal.
-* **🖱️ Curseur Magnétique :** Curseur JavaScript personnalisé qui réagit aux éléments interactifs.
-* **🧊 Effet Tilt 3D :** Les cartes de projets suivent le mouvement de la souris (librairie `vanilla-tilt.js`).
-* **🌌 Arrière-plan Animé :** Particules connectées en JavaScript sur Canvas HTML5.
-* **📱 PWA (Progressive Web App) :** Le site est installable sur mobile grâce au fichier `manifest.json`.
-* **🔒 Faux Login :** Une simulation d'authentification (JS Client-Side) pour démontrer la logique de script.
-
----
+## 🚀 Démo en ligne
+Le site est accessible directement via GitHub Pages :
+👉 **[Lien vers le site](https://mathispaolini.github.io/mon-portfolio/)** *(Remplace ce lien par le vrai lien une fois activé)*
 
 ## 🛠️ Stack Technique
 
-Ce projet est réalisé **sans framework lourd** pour garantir une performance maximale et démontrer une maîtrise des fondamentaux du web.
+Ce projet est un site statique pur, optimisé pour la performance et le design.
 
-| Technologie | Usage |
-| :--- | :--- |
-| **HTML5** | Structure sémantique et SEO (JSON-LD, Open Graph). |
-| **CSS3** | Animations (Keyframes), Flexbox, Grid, Variables CSS (:root). |
-| **JavaScript (ES6)** | Logique, Canvas, Fetch API (Formulaire), DOM Manipulation. |
-| **GitHub Pages** | Hébergement et déploiement continu. |
+* **HTML5** : Structure sémantique.
+* **CSS3** : Design moderne, "Glassmorphism", Flexbox & Grid, Animations fluides.
+* **JavaScript (Vanilla)** : Gestion des modales, animation de fond (particules Canvas), interactivité.
+* **FontAwesome** : Icônes vectorielles.
+* **Google Fonts** : Typographie "Outfit".
 
----
+## ✨ Fonctionnalités
+
+* **Design Responsive** : Adapté pour mobiles, tablettes et grands écrans.
+* **Navigation Latérale** : Menu ergonomique et moderne.
+* **Système de Modales** : Affichage détaillé des compétences et prévisualisation des PDF (Certifications/Procédures) sans quitter la page.
+* **Animation Canvas** : Fond animé interactif avec la souris.
+* **Formulaire de Contact** : Intégration fonctionnelle via [Formspree](https://formspree.io).
+* **Mode "Accès Restreint"** : Simulation d'une interface de login (Mockup).
 
 ## 📂 Structure du projet
 
-```bash
-mon-portfolio/
-├── index.html          # Structure principale
-├── style.css           # Design et Animations
-├── script.js           # Logique JS (Curseur, 3D, Login)
-├── site.webmanifest    # Configuration PWA (Icônes mobiles)
-├── sitemap.xml         # Plan du site pour Google (SEO)
-├── robots.txt          # Instructions pour les robots d'indexation
-└── assets/             # Images, Favicons, PDF
+L'arborescence des fichiers est organisée comme suit :
+
+```text
+MON-PORTFOLIO/
+│
+├── index.html          # Page principale
+├── style.css           # Feuille de style globale
+├── script.js           # Logique et animations JS
+├── favicon.ico         # Icône du navigateur
+│
+└── assets/             # Ressources statiques
+    ├── img/            # Photos de profil, logos, illustrations
+    └── docs/           # Documents PDF
+        ├── PAOLINI_Mathis_CV.pdf
+        ├── certs/      # Dossier des certifications (Pix, SecNum, Cisco...)
+        └── procs/      # Dossier des procédures techniques
