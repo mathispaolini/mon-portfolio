@@ -41,9 +41,9 @@
             </div>
         </div>
         
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <div class="menu-toggle" id="mobile-trigger"><i class="fas fa-bars"></i></div>
         
-        <nav>
+        <nav class="desktop-nav">
             <ul>
                 <li><a href="#accueil" class="nav-link active-link"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-text">Accueil</span></a></li>
                 <li><a href="#apropos" class="nav-link"><span class="nav-icon"><i class="fas fa-user"></i></span><span class="nav-text">Profil</span></a></li>
@@ -61,6 +61,19 @@
             <p>© 2026</p>
         </div>
     </header>
+
+    <div id="mobile-fullscreen-menu">
+        <nav>
+            <ul>
+                <li><a href="#accueil" class="mobile-link">Accueil</a></li>
+                <li><a href="#apropos" class="mobile-link">Profil</a></li>
+                <li><a href="#competences" class="mobile-link">Compétences</a></li>
+                <li><a href="#docs-techniques" class="mobile-link">Projets</a></li>
+                <li><a href="#parcours" class="mobile-link">Parcours</a></li>
+                <li><a href="#contact" class="mobile-link">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <main>
         <section id="accueil" class="hero">
@@ -94,13 +107,10 @@
                     <h3 class="gradient-title">Présentation</h3>
                     <h4 style="font-size: 1.2rem; color: white; margin-bottom: 1.5rem;">Salut, moi c'est <span style="font-weight: 800; color: white;">Mathis Paolini</span> 👋</h4>
                     <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
-                        Passionné par l'informatique depuis mon plus jeune âge, je suis actuellement étudiant à <strong>CaenSup Sainte-Ursule</strong> en deuxième année de <strong>BTS SIO</strong> (Services Informatiques aux Organisations) dans l'<strong>option SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux). Ma curiosité naturelle m'a poussé à explorer en profondeur les mécanismes des réseaux d'entreprise et de la cybersécurité.
-                    </p>
-                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
-                        Actuellement toujours en cours d'étude 🎓, je construis mon parcours professionnel autour de projets concrets et de stages immersifs. Ce portfolio a pour but de vous présenter mes différentes réalisations, mes compétences techniques acquises lors de mes laboratoires, ainsi que les projets professionnels que j'ai pu entreprendre au sein de ma carrière naissante.
+                        Passionné par l'informatique depuis mon plus jeune âge, je suis actuellement étudiant à <strong>CaenSup Sainte-Ursule</strong> en deuxième année de <strong>BTS SIO</strong> (Services Informatiques aux Organisations) dans l'<strong>option SISR</strong>.
                     </p>
                     <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">
-                        Je suis à la recherche d'une <strong>alternance</strong> pour poursuivre mes études en Licence Pro ou en Bachelor Cybersécurité. Vous retrouverez ci-dessous mon CV complet ainsi que le détail de mes différents projets techniques 💻.
+                        Je suis à la recherche d'une <strong>alternance</strong> pour poursuivre mes études en Licence Pro ou en Bachelor Cybersécurité.
                     </p>
                     <div style="display: flex; justify-content: flex-end;"><a href="assets/docs/PAOLINI_Mathis_CV.pdf" download class="btn-cv-outline">CV</a></div>
                 </div>
@@ -111,8 +121,8 @@
                     <div class="bento-icon"><i class="fas fa-brain"></i></div>
                     <h3>Soft Skills</h3>
                     <div class="soft-skills-tags">
-                        <span class="skill-pill">⚡ Autonomie</span><span class="skill-pill">🔍 Curiosité technique</span><span class="skill-pill">📅 Gestion du temps</span><span class="skill-pill">🧠 Esprit d'analyse</span>
-                        <span class="skill-pill">🤝 Travail d'équipe</span><span class="skill-pill">🛡️ Rigueur</span>
+                        <span class="skill-pill">⚡ Autonomie</span><span class="skill-pill">🔍 Curiosité</span><span class="skill-pill">📅 Rigueur</span>
+                        <span class="skill-pill">🤝 Esprit d'équipe</span>
                     </div>
                 </div>
                 <div class="bento-box">
@@ -124,7 +134,7 @@
                 <div class="bento-box">
                     <div class="bento-icon" style="background: rgba(16, 185, 129, 0.2); color: #10b981;"><i class="fas fa-car"></i></div>
                     <h3>Mobilité</h3>
-                    <div style="margin-top: 1rem; text-align: center;"><i class="fas fa-id-card" style="font-size: 2.5rem; color: var(--text-muted); margin-bottom: 10px;"></i><p style="color: white; font-weight: 600;">Permis B</p><p style="color: var(--text-muted); font-size: 0.85rem;">Véhiculé 🚗 (Déplacements possibles sur toute la région)</p></div>
+                    <div style="margin-top: 1rem; text-align: center;"><i class="fas fa-id-card" style="font-size: 2.5rem; color: var(--text-muted); margin-bottom: 10px;"></i><p style="color: white; font-weight: 600;">Permis B</p><p style="color: var(--text-muted); font-size: 0.85rem;">Véhiculé 🚗</p></div>
                 </div>
                 <div class="bento-box bento-wide hobbies-container">
                     <div class="bento-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;"><i class="fas fa-heart"></i></div>
@@ -133,69 +143,37 @@
                         <div class="hobby-item"><i class="fas fa-basketball-ball"></i><span>Basket</span></div>
                         <div class="hobby-item"><i class="fas fa-hiking"></i><span>Randonnée</span></div>
                         <div class="hobby-item"><i class="fas fa-plane-departure"></i><span>Voyages</span></div>
-                        <div class="hobby-item"><i class="fas fa-microchip"></i><span>Hardware PC</span></div>
+                        <div class="hobby-item"><i class="fas fa-microchip"></i><span>Hardware</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="bts">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 2rem;">
-                <h2><span class="bts-number">02</span> Le BTS SIO 🎓</h2>
-            </div>
-            <div class="reveal" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 3rem; text-align: left;">
-                <p style="margin-bottom: 1rem;">
-                    Avant de commencer à parler de moi plus en détail, je vous propose de présenter en premier lieu la filière dans laquelle je suis affecté.
-                </p>
-                <p>
-                    Le Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (<strong>BTS SIO</strong>) est un diplôme d'État de niveau Bac+2. Il s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur pour intégrer directement le marché du travail ou continuer des études supérieures dans le domaine de l'informatique et du numérique.
-                </p>
-            </div>
-            <h3 class="reveal" style="color: white; font-size: 1.5rem; margin-bottom: 2rem; text-align: left;">Le BTS SIO propose deux spécialités distinctes :</h3>
-            <div class="procedures-grid" id="cards-container-bts">
+             <div class="section-header reveal" style="text-align: left; margin-bottom: 2rem;"><h2><span class="bts-number">02</span> Le BTS SIO 🎓</h2></div>
+             <div class="reveal" style="color: var(--text-muted); margin-bottom: 2rem;">Le BTS SIO est un diplôme d'État de niveau Bac+2...</div>
+             <div class="procedures-grid" id="cards-container-bts">
                 <div class="card reveal bts-active-card">
-                    <div class="choice-badge">👈 La filière que j'ai choisi</div>
+                    <div class="choice-badge">👈 Mon choix</div>
                     <div class="card-content">
                         <div class="icon-box"><i class="fas fa-satellite-dish"></i></div>
                         <h3>Option SISR</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; margin-top: 1rem;">
-                            L'option <strong>« Solutions d'infrastructure, systèmes et réseaux »</strong> forme des professionnels capables de gérer un parc informatique. En sortant d'un BTS SIO SISR, vous serez capables d'installer, de configurer, de sécuriser et de maintenir des infrastructures réseaux, des serveurs et des postes clients au sein d'une organisation.
-                        </p>
-                        <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1rem;">Débouchés :</h4>
-                        <ul class="profile-list" style="margin-top:0.5rem; list-style:none; padding-left: 0;">
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Administrateur systèmes et réseaux</li>
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Informaticien support et déploiement</li>
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Pilote d'exploitation</li>
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Technicien d'infrastructure</li>
-                        </ul>
+                        <p style="color: var(--text-muted);">Solutions d'infrastructure, systèmes et réseaux.</p>
                     </div>
                 </div>
                 <div class="card reveal">
                     <div class="card-content">
-                        <div class="icon-box" style="color: var(--text-muted); border-color: rgba(255,255,255,0.1);"><i class="fas fa-save"></i></div>
+                        <div class="icon-box"><i class="fas fa-save"></i></div>
                         <h3>Option SLAM</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; margin-top: 1rem;">
-                            L'option <strong>« Solutions logicielles et applications métiers »</strong> forme des spécialistes du développement logiciel. Elle prépare aux métiers de la conception, du développement, et de la maintenance de solutions applicatives (web, mobile, lourd).
-                        </p>
-                        <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1rem;">Débouchés :</h4>
-                        <ul class="profile-list" style="margin-top:0.5rem; list-style:none; padding-left: 0;">
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Développeur d'applications informatiques</li>
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Développeur informatique</li>
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Analyste programmeur</li>
-                            <li><i class="fas fa-angle-right" style="width: 15px; font-size: 0.8rem;"></i> Intégrateur web</li>
-                        </ul>
+                        <p style="color: var(--text-muted);">Solutions logicielles et applications métiers.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="competences">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 4rem;">
-                <h2><span class="bts-number">03</span> Compétences SISR 🛠️</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-                    Toutes ces connaissances techniques ont été acquises de différentes manières. Une grande partie a été enseignée durant mes cours théoriques et pratiques en BTS SIO, tandis que d'autres ont été développées par ma propre initiative lors de projets personnels ou en stage. J'ai également participé à des défis techniques (CTF, challenges réseaux) qui m'ont permis d'effectuer des recherches approfondies et d'aller au-delà du programme scolaire.
-                    <br><span style="font-size: 0.9rem; color: var(--primary);"><i class="fas fa-info-circle"></i> Cliquez sur une compétence pour voir les détails complets.</span>
-                </p>
+             <div class="section-header reveal">
+                <h2><span class="bts-number">03</span> Compétences</h2>
             </div>
             <div class="skills-grid reveal">
                 <div class="skill-card" onclick="openSkillModal('cisco')"><div class="skill-icon" style="color: #cbd5e1;"><i class="fas fa-satellite-dish"></i></div><h3>CISCO IOS</h3></div>
@@ -208,266 +186,66 @@
         </section>
 
         <section id="outils">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 4rem;">
-                <h2><span class="bts-number">04</span> Mes Outils / Logiciels ⚙️</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-                    Voici l'ensemble des logiciels et outils techniques que j'utilise quotidiennement pour réaliser mes laboratoires, diagnostiquer les pannes réseaux et gérer le parc informatique. La maîtrise de ces outils est essentielle pour un administrateur système et réseau efficace, me permettant de simuler, surveiller et intervenir sur les infrastructures.
-                </p>
-            </div>
+            <div class="section-header reveal"><h2><span class="bts-number">04</span> Outils</h2></div>
             <div class="skills-grid reveal">
                 <div class="skill-card" onclick="openSkillModal('packettracer')"><div class="skill-icon" style="color: #0d9488;"><i class="fas fa-network-wired"></i></div><h3>PACKET TRACER</h3></div>
                 <div class="skill-card" onclick="openSkillModal('wireshark')"><div class="skill-icon" style="color: #3b82f6;"><i class="fas fa-water"></i></div><h3>WIRESHARK</h3></div>
-                <div class="skill-card" onclick="openSkillModal('putty')"><div class="skill-icon" style="color: #facc15;"><i class="fas fa-terminal"></i></div><h3>PUTTY / SSH</h3></div>
-                <div class="skill-card" onclick="openSkillModal('virtualbox')"><div class="skill-icon" style="color: #f97316;"><i class="fas fa-box-open"></i></div><h3>VIRTUALBOX</h3></div>
-                <div class="skill-card" onclick="openSkillModal('glpi')"><div class="skill-icon" style="color: #a855f7;"><i class="fas fa-ticket-alt"></i></div><h3>GLPI / TICKETS</h3></div>
-                <div class="skill-card" onclick="openSkillModal('drawio')"><div class="skill-icon" style="color: #eab308;"><i class="fas fa-ruler-combined"></i></div><h3>VISIO / DRAW.IO</h3></div>
             </div>
         </section>
-
+        
         <section id="certifications">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 4rem;">
-                <h2><span class="bts-number">05</span> Certifications 📜</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-                    Afin de valider mes compétences et d'assurer une expertise reconnue, j'ai passé plusieurs certifications et modules au cours de ma formation et en autonomie. Ces attestations témoignent de ma capacité à respecter les standards de l'industrie, notamment en matière de cybersécurité et de configuration réseau.
-                    <br><span style="font-size: 0.9rem; color: var(--primary);"><i class="fas fa-info-circle"></i> Cliquez pour voir le PDF de la certification.</span>
-                </p>
-            </div>
+            <div class="section-header reveal"><h2><span class="bts-number">05</span> Certifications</h2></div>
             <div class="skills-grid reveal">
                 <div class="skill-card" onclick="openCertifModal('secnum')"><div class="skill-icon" style="color: #ef4444;"><i class="fas fa-shield-alt"></i></div><h3>SECNUMACADÉMIE</h3></div>
-                <div class="skill-card" onclick="openCertifModal('pix')"><div class="skill-icon" style="color: #3b82f6;"><i class="fas fa-desktop"></i></div><h3>CERTIFICATION PIX</h3></div>
-                <div class="skill-card" onclick="openCertifModal('cisco_intro')"><div class="skill-icon" style="color: #facc15;"><i class="fas fa-user-secret"></i></div><h3>CISCO INTRO CYBER</h3></div>
-                <div class="skill-card" onclick="openCertifModal('cisco_basics')"><div class="skill-icon" style="color: #0d9488;"><i class="fas fa-globe"></i></div><h3>CISCO BASICS</h3></div>
-                <div class="skill-card" onclick="openCertifModal('cisco_config')"><div class="skill-icon" style="color: #94a3b8;"><i class="fas fa-cogs"></i></div><h3>CISCO CONFIG</h3></div>
+                <div class="skill-card" onclick="openCertifModal('pix')"><div class="skill-icon" style="color: #3b82f6;"><i class="fas fa-desktop"></i></div><h3>PIX</h3></div>
             </div>
         </section>
 
-        <section id="veille" style="background: rgba(255,255,255,0.01);">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 3rem;">
-                <h2><span class="bts-number">06</span> Veille Technologique 📔</h2>
-            </div>
+        <section id="veille">
+            <div class="section-header reveal"><h2><span class="bts-number">06</span> Veille Techno</h2></div>
             <div class="veille-container reveal">
-                <div class="veille-definition">
-                    <h3 class="gradient-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Qu'est-ce que la veille technologique ?</h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">
-                        La veille technologique, élément incontournable de la stratégie IT, consiste à surveiller de manière systématique et organisée les évolutions techniques, les innovations et les tendances dans un secteur d'activité donnée. Elle comprend notamment la <strong>surveillance</strong> des flux d'actualités, la <strong>collecte</strong> d'informations pertinentes, le <strong>partage</strong> avec les équipes et la <strong>diffusion</strong> d'information.
-                    </p>
-                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; margin-top: 1rem;">
-                        Cela permet d'anticiper les changements majeurs (nouvelles Cybermenaces, avènement de l'IA, technologies Cloud), d'évaluer l'impact sur l'infrastructure de l'organisation et de maintenir un niveau de compétence à jour face à l'obsolescence rapide des technologies.
-                    </p>
-                </div>
                 <div class="veille-grid">
-                    <div class="bento-box" style="align-items: flex-start;">
-                        <div class="bento-icon" style="background: rgba(249, 115, 22, 0.2); color: #f97316;"><i class="fas fa-rss"></i></div>
-                        <h3>Mes Outils</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
-                            J'ai automatisé ma veille technologique grâce à des outils d'agrégation performants pour ne rien rater.
-                        </p>
-                        <div style="display:flex; flex-direction:column; gap:10px; width:100%;">
-                            <div class="tool-row"><i class="fas fa-rss-square" style="color: #2bb24c;"></i> <span>Feedly (Agrégateur RSS)</span></div>
-                            <div class="tool-row"><i class="fas fa-envelope-open-text" style="color: #f97316;"></i> <span>Newsletter OpenAI & Cyber</span></div>
-                            <div class="tool-row"><i class="fab fa-google" style="color: #3b82f6;"></i> <span>Google Alerts</span></div>
-                        </div>
-                    </div>
-                    <div class="bento-box bento-wide" style="align-items: flex-start;">
-                        <div class="bento-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;"><i class="fas fa-globe"></i></div>
-                        <h3>Sources & Sites Favoris</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                            En plus des flux automatisés, je consulte régulièrement des sources de référence pour approfondir mes sujets (Hardware, Cybersécurité, Actualité Tech) :
-                        </p>
-                        <div class="sources-tags">
-                            <a href="https://hitek.fr/" target="_blank" class="source-pill">Hitek.fr</a>
-                            <a href="https://www.hardware.fr/" target="_blank" class="source-pill">Hardware.fr</a>
-                            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="source-pill" style="border-color: #ef4444; color:#ef4444;">CERT-FR (Alertes)</a>
-                            <a href="https://www.lemagit.fr/" target="_blank" class="source-pill">LeMagIT</a>
-                            <a href="https://www.zdnet.fr/" target="_blank" class="source-pill">ZDNet</a>
-                            <a href="https://www.ssi.gouv.fr/" target="_blank" class="source-pill" style="border-color: #ef4444; color:#ef4444;">ANSSI</a>
-                        </div>
-                    </div>
+                    <div class="bento-box"><h3>Outils</h3><p style="color:gray">Feedly, Newsletter...</p></div>
+                    <div class="bento-box"><h3>Sources</h3><p style="color:gray">ANSSI, ZDNet...</p></div>
                 </div>
             </div>
         </section>
 
         <section id="docs-techniques">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 4rem;">
-                <h2><span class="bts-number">07</span> Procédures & TP 📝</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-                    Retrouvez ici l'ensemble de ma documentation technique détaillée. Ces procédures ont été rédigées lors de mes TP en cours ou en autonomie. Elles décrivent étape par étape la mise en place de solutions d'infrastructure complexes, prouvant ma capacité à documenter et reproduire des configurations techniques.
-                    <br><span style="font-size: 0.9rem; color: var(--primary);"><i class="fas fa-info-circle"></i> Cliquez pour visualiser la procédure complète en PDF.</span>
-                </p>
-            </div>
+            <div class="section-header reveal"><h2><span class="bts-number">07</span> Procédures</h2></div>
             <div class="skills-grid reveal">
-                <div class="skill-card" onclick="openCertifModal('proc_samba')"><div class="skill-icon" style="color: #facc15;"><i class="fab fa-linux"></i></div><h3>SAMBA</h3></div>
-                <div class="skill-card" onclick="openCertifModal('proc_bind9')"><div class="skill-icon" style="color: #3b82f6;"><i class="fas fa-globe"></i></div><h3>DNS BIND9</h3></div>
-                <div class="skill-card" onclick="openCertifModal('proc_glpi')"><div class="skill-icon" style="color: #a855f7;"><i class="fas fa-ticket-alt"></i></div><h3>GLPI</h3></div>
-                <div class="skill-card" onclick="openCertifModal('proc_3tiers')"><div class="skill-icon" style="color: #f97316;"><i class="fas fa-server"></i></div><h3>3-TIERS</h3></div>
-                <div class="skill-card" onclick="openCertifModal('proc_haproxy')"><div class="skill-icon" style="color: #ef4444;"><i class="fas fa-balance-scale"></i></div><h3>HAPROXY</h3></div>
-                <div class="skill-card" onclick="openCertifModal('proc_ad')"><div class="skill-icon" style="color: #3b82f6;"><i class="fab fa-windows"></i></div><h3>AD DS</h3></div>
+                 <div class="skill-card" onclick="openCertifModal('proc_glpi')"><div class="skill-icon" style="color: #a855f7;"><i class="fas fa-ticket-alt"></i></div><h3>GLPI</h3></div>
+                 <div class="skill-card" onclick="openCertifModal('proc_ad')"><div class="skill-icon" style="color: #3b82f6;"><i class="fab fa-windows"></i></div><h3>AD DS</h3></div>
             </div>
         </section>
-
+        
         <section id="parcours">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 2rem;">
-                <h2><span class="bts-number">08</span> Mon Parcours 🚀</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-                    Mon parcours professionnel et académique est marqué par une volonté constante d'apprendre et de me perfectionner dans le domaine informatique. Chaque expérience m'a permis d'acquérir de nouvelles compétences techniques et humaines.
-                </p>
-            </div>
-            <div class="reveal" style="max-width: 1000px; margin: 0 auto 1.5rem auto;">
-                <h3 style="color: white; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-briefcase" style="color: var(--primary);"></i> Expériences Professionnelles
-                </h3>
-            </div>
-            <div class="parcours-container reveal" style="margin-bottom: 4rem;">
+             <div class="section-header reveal"><h2><span class="bts-number">08</span> Parcours</h2></div>
+             <div class="parcours-container reveal">
                 <div class="parcours-card">
-                    <div class="parcours-content">
-                        <div class="parcours-header">
-                            <h3>B'PLAST (Industrie)</h3>
-                            <span class="parcours-badge badge-stage">Stage Admin Réseau | Déc 2025 - Fév 2026</span>
-                        </div>
-                        <p class="parcours-desc">Stage technique de deuxième année au siège social du groupe (Vire). Intégration au sein de l'équipe DSI pour la gestion de l'infrastructure.</p>
-                        <ul class="parcours-details">
-                            <li><span class="bullet-key">Configuration Réseau :</span> Paramétrage de switchs Cisco/HP, segmentation VLAN pour isoler les services critiques.</li>
-                            <li><span class="bullet-key">Supervision :</span> Mise en place et configuration d'outils de monitoring pour surveiller la bande passante et l'état des serveurs.</li>
-                            <li><span class="bullet-key">Support N2 :</span> Résolution d'incidents complexes liés à la connectivité et aux droits d'accès sur le serveur de fichiers.</li>
-                        </ul>
-                    </div>
-                    <div class="parcours-icon-large">
-                        <i class="fas fa-industry" style="color: #3b82f6;"></i>
-                    </div>
+                    <div class="parcours-content"><h3>B'PLAST</h3><p class="parcours-desc">Stage Admin Réseau</p></div>
                 </div>
                 <div class="parcours-card">
-                    <div class="parcours-content">
-                        <div class="parcours-header">
-                            <h3>LIDL (Grande Distribution)</h3>
-                            <span class="parcours-badge badge-job">Employé Polyvalent | Depuis Juin 2025</span>
-                        </div>
-                        <p class="parcours-desc">Expérience professionnelle en parallèle de mes études (Job étudiant), développant des compétences transversales essentielles.</p>
-                        <ul class="parcours-details">
-                            <li><span class="bullet-key">Organisation :</span> Gestion des priorités en caisse et mise en rayon efficace pour respecter les délais.</li>
-                            <li><span class="bullet-key">Gestion du stress :</span> Capacité à travailler rapidement et efficacement lors des périodes de forte affluence.</li>
-                            <li><span class="bullet-key">Relationnel :</span> Accueil client, écoute des besoins et résolution de litiges simples.</li>
-                        </ul>
-                    </div>
-                    <div class="parcours-icon-large">
-                        <i class="fas fa-shopping-cart" style="color: #ef4444;"></i>
-                    </div>
+                    <div class="parcours-content"><h3>BTS SIO</h3><p class="parcours-desc">CaenSup Sainte-Ursule</p></div>
                 </div>
-                <div class="parcours-card">
-                    <div class="parcours-content">
-                        <div class="parcours-header">
-                            <h3>Centre François Baclesse (Santé)</h3>
-                            <span class="parcours-badge badge-stage">Stage Technicien | Mai - Juin 2025</span>
-                        </div>
-                        <p class="parcours-desc">Premier stage technique au sein d'un centre de lutte contre le cancer, environnement sensible exigeant rigueur et confidentialité.</p>
-                        <ul class="parcours-details">
-                            <li><span class="bullet-key">Administration :</span> Gestion des comptes Active Directory (Création, modification, désactivation) et gestion des droits NTFS.</li>
-                            <li><span class="bullet-key">Déploiement :</span> Installation et configuration de bornes Wi-Fi sécurisées pour le personnel soignant et les patients.</li>
-                            <li><span class="bullet-key">Maintenance :</span> Masterisation et déploiement de postes de travail via MDT, assistance de proximité.</li>
-                        </ul>
-                    </div>
-                    <div class="parcours-icon-large">
-                        <i class="fas fa-hospital" style="color: #10b981;"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="reveal" style="max-width: 1000px; margin: 0 auto 1.5rem auto;">
-                <h3 style="color: white; font-size: 1.5rem; display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-graduation-cap" style="color: var(--secondary);"></i> Formation Académique
-                </h3>
-            </div>
-            <div class="parcours-container reveal">
-                <div class="parcours-card">
-                    <div class="parcours-content">
-                        <div class="parcours-header">
-                            <h3>BTS SIO - Option SISR</h3>
-                            <span class="parcours-badge badge-school">CaenSup Sainte-Ursule | Depuis 2024</span>
-                        </div>
-                        <p class="parcours-desc">Formation supérieure en Services Informatiques aux Organisations, spécialisation Solutions d'Infrastructure, Systèmes et Réseaux.</p>
-                        <ul class="parcours-details">
-                            <li><span class="bullet-key">Enseignements :</span> Cybersécurité, Administration Système (Windows/Linux), Réseau (Cisco), Base de données.</li>
-                            <li><span class="bullet-key">Projets :</span> Réalisation de nombreux Ateliers de Professionnalisation (AP) simulant des contextes d'entreprise réels.</li>
-                        </ul>
-                    </div>
-                    <div class="parcours-icon-large">
-                        <i class="fas fa-user-graduate" style="color: #8b5cf6;"></i>
-                    </div>
-                </div>
-                <div class="parcours-card">
-                    <div class="parcours-content">
-                        <div class="parcours-header">
-                            <h3>Baccalauréat STMG</h3>
-                            <span class="parcours-badge badge-school">Lycée Jean Rostand | 2021 - 2024</span>
-                        </div>
-                        <p class="parcours-desc">Baccalauréat Sciences et Technologies du Management et de la Gestion, Option Systèmes d'Information de Gestion (SIG).</p>
-                        <ul class="parcours-details">
-                            <li><span class="bullet-key">Mention :</span> Obtention du diplôme avec mention, validant un parcours sérieux.</li>
-                            <li><span class="bullet-key">Bases :</span> Découverte des bases de données (SQL), de la programmation et des enjeux numériques en entreprise.</li>
-                        </ul>
-                    </div>
-                    <div class="parcours-icon-large">
-                        <i class="fas fa-school" style="color: #facc15;"></i>
-                    </div>
-                </div>
-            </div>
+             </div>
         </section>
 
         <section id="contact">
             <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
-                <h2><span class="bts-number">09</span> Me Contacter 📩</h2>
+                <h2><span class="bts-number">09</span> Contact 📩</h2>
             </div>
             <div class="contact-container reveal">
                 <div class="contact-info">
-                    <h3 style="color:white; margin-bottom:2rem; font-size:1.5rem;">Contact</h3>
-                    <p style="color:var(--text-muted); margin-bottom:2rem;">N'hésitez pas à m'envoyer un message pour toute opportunité professionnelle ou question.</p>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <span class="info-label">Localisation :</span>
-                            <span class="info-value">Normandie, France</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <span class="info-label">Email :</span>
-                            <span class="info-value">paolinimathis@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <span class="info-label">Téléphone :</span>
-                            <span class="info-value">07 77 64 13 91</span>
-                        </div>
-                    </div>
+                    <h3 style="color:white;">Mes coordonnées</h3>
+                    <p style="color:var(--text-muted);">Normandie, France<br>paolinimathis@gmail.com</p>
                 </div>
                 <div class="contact-form-wrapper">
                     <form id="contact-form" action="https://formspree.io/f/mwvvgbrb" method="POST">
-                        <input type="text" name="_gotcha" style="display:none">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div class="form-group">
-                                <label for="name">Votre nom</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Votre mail*</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Sujet*</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Votre message*</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <div style="display:flex; justify-content:flex-end;">
-                            <button type="submit" class="btn-send">
-                                <i class="fas fa-paper-plane"></i> Envoyer
-                            </button>
-                        </div>
+                        <div class="form-group"><input type="text" name="name" placeholder="Nom" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
+                        <div class="form-group"><textarea name="message" rows="4" placeholder="Message" required></textarea></div>
+                        <button type="submit" class="btn-send">Envoyer</button>
                     </form>
                     <div id="form-status"></div>
                 </div>
@@ -475,57 +253,14 @@
         </section>
 
         <footer style="text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--border); font-size: 0.9rem;">
-            &copy; <span id="year">2026</span> Mathis Paolini. Portfolio BTS SIO.<br>
-            <span id="open-legal" class="legal-link" style="cursor:pointer; text-decoration:underline;">Mentions Légales</span>
+            &copy; <span id="year">2026</span> Mathis Paolini.<br>
+            <span id="open-legal" class="legal-link">Mentions Légales</span>
         </footer>
     </main>
 
-    <div id="legal-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="color:white; margin-bottom:1.5rem; text-align:center;">Mentions Légales & Confidentialité</h2>
-            
-            <div style="line-height: 1.6; font-size: 0.95rem;">
-                <p style="margin-bottom: 1rem;">
-                    <strong>1. Éditeur du site</strong><br>
-                    <strong>Mathis Paolini</strong><br>
-                    Étudiant en BTS SIO (Option SISR)<br>
-                    Contact : paolinimathis@gmail.com
-                </p>
-                
-                <p style="margin-bottom: 1rem;">
-                    <strong>2. Hébergement & Infrastructure</strong><br>
-                    Le site est hébergé par <strong>GitHub, Inc.</strong> (88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA).<br>
-                    La sécurisation du trafic (HTTPS), la protection contre les attaques (DDoS) et le réseau de distribution (CDN) sont assurés par <strong>Cloudflare, Inc.</strong>
-                </p>
-                
-                <p style="margin-bottom: 1rem;">
-                    <strong>3. Cookies & Sécurité</strong><br>
-                    Ce site n'utilise aucun traceur publicitaire. Seuls des cookies techniques strictement nécessaires au fonctionnement sont déposés :
-                </p>
-                <ul style="margin-bottom: 1rem; padding-left: 20px; list-style: disc;">
-                    <li><strong>auth_token :</strong> Cookie sécurisé (durée : 7 jours) permettant de mémoriser l'accès authentifié au portfolio.</li>
-                    <li><strong>Cloudflare Turnstile :</strong> Solution de sécurité (remplaçant reCAPTCHA) vérifiant que le visiteur n'est pas un robot, sans collecter de données de profilage.</li>
-                </ul>
-                
-                <p>
-                    <strong>4. Données Personnelles</strong><br>
-                    Les données transmises via le formulaire de contact sont gérées par le service tiers <strong>Formspree</strong> et ne servent qu'à la correspondance professionnelle. Conformément à la loi "Informatique et Libertés", vous disposez d'un droit d'accès et de rectification aux données vous concernant.
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <div id="skill-modal" class="modal">
-        <div class="modal-content skill-modal-content">
-            <span class="close-modal" onclick="closeSkillModal()">&times;</span>
-            <div id="skill-modal-body"></div>
-        </div>
-    </div>
+    <div id="legal-modal" class="modal"><div class="modal-content"><span class="close-modal">&times;</span><h2>Mentions Légales</h2><p>Hébergé par GitHub.</p></div></div>
+    <div id="skill-modal" class="modal"><div class="modal-content skill-modal-content"><span class="close-modal" onclick="closeSkillModal()">&times;</span><div id="skill-modal-body"></div></div></div>
     
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
