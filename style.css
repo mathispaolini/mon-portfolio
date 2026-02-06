@@ -214,119 +214,108 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
 .btn-send:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4); }
 
 /* --- OPTIMISATION MOBILE (RESPONSIVE) --- */
-/* --- VERSION FINALE CORRIGÉE : ALIGNEMENT FORCÉ & MENU PLEIN ÉCRAN --- */
+/* --- CORRECTION ULTRA-PRIORITAIRE MOBILE --- */
 @media (max-width: 900px) {
-    :root { 
-        --sidebar-width: 0px; 
-        --header-height: 80px;
-    }
-
-    /* BARRE DU HAUT FIXE */
+    /* 1. LA BARRE DU HAUT (CONTAINER) */
     header { 
-        width: 100% !important; 
-        height: var(--header-height) !important;
-        padding: 0 1.5rem !important; 
         position: fixed !important; 
-        top: 0 !important;
-        left: 0 !important;
+        top: 0 !important; 
+        left: 0 !important; 
+        width: 100% !important; 
+        height: 70px !important; 
+        padding: 0 20px !important; 
+        
         display: flex !important; 
-        flex-direction: row !important;
-        align-items: center !important; 
-        /* On ne compte pas sur space-between, on force le déplacement plus bas */
-        justify-content: flex-start !important; 
-        background: rgba(2, 6, 23, 0.95) !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        backdrop-filter: blur(10px) !important;
-        z-index: 9999 !important; /* Toujours au-dessus */
-    }
-
-    /* LOGO + NOM (À GAUCHE) */
-    .logo-container { 
-        display: flex !important;
         flex-direction: row !important; 
-        align-items: center !important;
-        width: auto !important; 
-        gap: 12px !important; 
-        margin: 0 !important;
+        align-items: center !important; 
+        justify-content: space-between !important; /* Pousse le logo à gauche et le bouton à droite */
+        
+        background: rgba(2, 6, 23, 0.98) !important; 
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important; 
+        z-index: 99999 !important;
     }
 
-    .logo-circle { 
-        width: 42px !important; 
-        height: 42px !important; 
-        margin: 0 !important;
-        border: 2px solid var(--primary) !important;
-        flex-shrink: 0 !important; /* Empêche la photo de s'écraser */
+    /* 2. LE LOGO (GAUCHE) */
+    .logo-container { 
+        display: flex !important; 
+        align-items: center !important; 
+        gap: 10px !important; 
+        width: auto !important; 
+        margin: 0 !important; 
     }
-    
+    .logo-circle { 
+        width: 40px !important; 
+        height: 40px !important; 
+        margin: 0 !important; 
+        border: none !important;
+    }
     .logo-text { 
         font-size: 1.1rem !important; 
-        white-space: nowrap !important; /* Empêche le texte de passer à la ligne */
+        white-space: nowrap !important;
     }
-    
     .logo-status { display: none !important; }
 
-    /* BOUTON MENU (FORCÉ TOUT À DROITE) */
+    /* 3. L'ÉLÉMENT NAV (INVISIBLE MAIS QUI GÊNAIT) */
+    /* On le sort du flux pour qu'il n'empêche pas le bouton d'aller à droite */
+    nav {
+        position: absolute !important;
+        top: 0; left: 0; width: 0; height: 0;
+    }
+
+    /* 4. LE BOUTON HAMBURGER (DROITE) */
     .menu-toggle { 
         display: block !important; 
         font-size: 1.8rem !important; 
         color: white !important; 
-        cursor: pointer !important;
-        margin-left: auto !important; /* C'EST LA CLÉ : Pousse le bouton au bout à droite */
-        z-index: 10001 !important;
+        cursor: pointer !important; 
+        z-index: 100002 !important; /* Au-dessus de tout */
+        margin: 0 !important;
     }
 
-    /* CONTENEUR DU MENU (Invisible tant que fermé) */
-    nav {
-        position: static !important; /* Ne gêne pas le header */
-    }
-
+    /* 5. LE MENU DÉROULANT (QUAND IL EST FERMÉ) */
     nav ul { 
-        display: none !important; /* Fermé par défaut */
+        display: none !important; 
     }
 
-    /* LE MENU QUAND IL EST OUVERT (CLASSE ACTIVE AJOUTÉE PAR LE JS) */
+    /* 6. LE MENU DÉROULANT (QUAND IL EST OUVERT / ACTIF) */
     nav ul.active { 
         display: flex !important; 
-        position: fixed !important; 
-        top: var(--header-height) !important; /* Commence sous la barre */
-        left: 0 !important; 
-        width: 100% !important; 
-        height: calc(100vh - var(--header-height)) !important; /* Prend tout le reste de l'écran */
         flex-direction: column !important; 
-        align-items: center !important;
-        justify-content: center !important; /* Centre les liens verticalement */
+        justify-content: center !important; 
+        align-items: center !important; 
         gap: 2rem !important;
-        padding: 2rem !important; 
+
+        position: fixed !important; 
+        top: 0 !important; 
+        left: 0 !important; 
+        width: 100vw !important; /* Prend toute la largeur */
+        height: 100vh !important; /* Prend toute la hauteur */
         
-        /* Ton effet Blur Premium */
-        background: rgba(2, 6, 23, 0.9) !important; 
-        backdrop-filter: blur(15px) !important;
+        background: rgba(2, 6, 23, 0.95) !important; 
+        backdrop-filter: blur(15px) !important; 
         -webkit-backdrop-filter: blur(15px) !important;
         
-        z-index: 10000 !important;
-        overflow-y: auto !important;
+        padding: 0 !important; 
+        margin: 0 !important; 
+        z-index: 100000 !important; 
     }
 
-    /* Ajustement des liens dans le menu mobile */
+    /* Style des liens dans le menu */
     nav a {
-        font-size: 1.2rem !important;
-        width: 100% !important;
+        font-size: 1.4rem !important;
         justify-content: center !important;
+        width: 100% !important;
     }
 
-    /* CORPS DE PAGE (POUSSÉ SOUS LE HEADER) */
+    /* 7. LE CONTENU (POUSSÉ VERS LE BAS) */
     main { 
         margin-left: 0 !important; 
-        margin-top: var(--header-height) !important; 
+        margin-top: 70px !important; 
         width: 100% !important; 
-        overflow-x: hidden !important;
     }
-
+    
     .sidebar-footer { display: none !important; } 
-
-    /* Ajustement titre pour éviter qu'il soit trop gros */
-    .mega-title { font-size: 2.2rem !important; line-height: 1.2 !important; }
-    .hero-subtitle { font-size: 0.9rem !important; }
+    .mega-title { font-size: 2.5rem !important; }
 }
 
 @media screen and (max-height: 850px) and (min-width: 900px) {
@@ -334,6 +323,7 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
     .logo-container { margin-bottom: 1.5rem; }
     nav a { padding: 10px 15px; }
 }
+
 
 
 
