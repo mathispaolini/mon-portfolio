@@ -214,136 +214,155 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
 .btn-send:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4); }
 
 /* --- OPTIMISATION MOBILE (RESPONSIVE) --- */
-/* --- CORRECTION FINALE & OPTIMISATION MOBILE --- */
+/* =========================================
+   OPTIMISATION MOBILE "CHAMP LIBRE" (V3.0)
+   ========================================= */
 @media (max-width: 900px) {
+    
+    /* 1. RESET VARIABLES */
     :root { 
+        --sidebar-width: 0px; 
         --header-height: 70px;
-        --sidebar-width: 0px;
     }
 
-    /* 1. HEADER FIXE ET PROPRE */
+    /* 2. HEADER MINIMALISTE & FIXE */
     header { 
-        position: fixed !important; 
-        top: 0 !important; 
-        left: 0 !important; 
         width: 100% !important; 
         height: var(--header-height) !important;
-        padding: 0 20px !important; 
+        position: fixed !important; 
+        top: 0 !important; left: 0 !important;
+        padding: 0 1.5rem !important; 
+        
         display: flex !important; 
-        justify-content: space-between !important; /* Ecarte Logo et Bouton */
+        justify-content: space-between !important; /* Logo à gauche, Burger à droite */
         align-items: center !important; 
-        background: rgba(2, 6, 23, 0.98) !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        backdrop-filter: blur(15px) !important;
-        z-index: 10000 !important;
+        
+        background: rgba(2, 6, 23, 0.95) !important; /* Fond sombre quasi-opaque */
+        backdrop-filter: blur(12px) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
         border-right: none !important;
+        z-index: 9999 !important; /* Reste au-dessus du contenu */
     }
 
-    /* 2. LOGO (PHOTO SEULEMENT, BIEN CENTRÉE) */
+    /* 3. LOGO (PHOTO SEULEMENT) */
     .logo-container { 
-        width: auto !important; 
-        margin: 0 !important; 
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 0 !important;
+        width: auto !important; margin: 0 !important; padding: 0 !important;
+        flex-direction: row !important;
     }
-
-    .logo-text, .logo-status { 
-        display: none !important; /* Supprime le nom et le statut */
-    }
-
+    .logo-text, .logo-status { display: none !important; } /* On cache le texte */
+    
     .logo-circle { 
-        width: 45px !important; 
-        height: 45px !important; 
+        width: 42px !important; height: 42px !important; 
         margin: 0 !important; 
         border: 2px solid var(--primary) !important;
-        border-radius: 50% !important;
-        flex-shrink: 0 !important;
-    }
-    
-    .logo-circle img {
-        width: 100% !important; height: 100% !important; object-fit: cover !important;
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.3) !important;
     }
 
-    /* 3. LE BOUTON MENU (DÉBLOQUÉ ET AGRANDI) */
+    /* 4. BOUTON BURGER (VISIBLE & CLIQUABLE) */
     .menu-toggle { 
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 1.8rem !important; 
+        width: 48px !important; height: 48px !important;
+        
+        font-size: 1.6rem !important; 
         color: white !important; 
         cursor: pointer !important; 
-        /* Z-INDEX TRÈS ÉLEVÉ POUR QU'IL SOIT CLIQUABLE */
-        z-index: 100002 !important; 
-        width: 50px !important; height: 50px !important;
-        margin: 0 !important;
-        background: transparent !important; /* Enlève tout fond gris parasite */
+        z-index: 10001 !important; /* SUPÉRIEUR au menu déroulant */
+        background: transparent !important;
     }
 
-    /* 4. LE MENU (S'OUVRE EN PLEIN ÉCRAN) */
-    /* On cache nav par défaut pour qu'il ne couvre pas le bouton */
-    nav { position: static !important; width: 0; height: 0; }
+    /* 5. GESTION DU MENU DÉROULANT */
+    /* On retire le conteneur nav du flux pour qu'il ne gêne pas */
+    nav { position: static !important; width: 0; height: 0; padding: 0; margin: 0; }
     
     nav ul { 
         display: none !important; /* Caché par défaut */
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
-    /* QUAND ON CLIQUE (CLASSE .active AJOUTÉE PAR LE JS) */
+    /* QUAND LE MENU EST OUVERT (.active ajouté par le JS) */
     nav ul.active { 
         display: flex !important; 
+        opacity: 1 !important;
+        
+        position: fixed !important; 
+        top: 0 !important; left: 0 !important;
+        width: 100vw !important; height: 100vh !important;
+        
         flex-direction: column !important; 
         justify-content: center !important; 
         align-items: center !important; 
-        
-        position: fixed !important; 
-        top: var(--header-height) !important; 
-        left: 0 !important; 
-        width: 100% !important; 
-        height: calc(100vh - var(--header-height)) !important; 
-        
-        background: rgba(2, 6, 23, 0.98) !important; 
-        backdrop-filter: blur(20px) !important;
-        
-        padding: 2rem !important; 
         gap: 2rem !important;
-        z-index: 100001 !important;
-        overflow-y: auto !important;
+        
+        background: rgba(2, 6, 23, 0.98) !important; /* Fond opaque pour cacher le site */
+        backdrop-filter: blur(15px) !important;
+        z-index: 10000 !important; /* Juste en dessous du bouton burger */
+        padding-top: 2rem !important;
     }
 
     nav a {
-        font-size: 1.4rem !important;
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        color: white !important;
         width: 100% !important;
-        text-align: center !important;
         justify-content: center !important;
     }
 
-    /* 5. OPTIMISATION DU CONTENU (CENTRAGE PARFAIT) */
+    .sidebar-footer { display: none !important; }
+
+    /* 6. CORPS DE PAGE (MAIN) */
     main { 
         margin-left: 0 !important; 
         margin-top: var(--header-height) !important; 
         width: 100% !important; 
-        text-align: center !important; /* Centre tout le texte */
+        overflow-x: hidden !important; /* Empêche le scroll horizontal */
     }
 
     section { 
-        padding: 4rem 1.5rem !important; /* Marges confortables sur mobile */
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important; /* Centre les blocs */
+        padding: 3rem 1.5rem !important; /* Marges réduites */
+        max-width: 100% !important;
     }
 
-    /* Ajustement des titres pour qu'ils ne débordent pas */
-    .mega-title { font-size: 2.5rem !important; line-height: 1.2 !important; }
+    /* 7. RECTIFICATION DU CONTENU "TROP CENTRÉ" */
+    /* On garde les titres centrés pour le style */
+    .hero-content, .section-header { 
+        text-align: center !important; 
+        align-items: center !important; 
+    }
+    
+    .mega-title { font-size: 2.5rem !important; line-height: 1.1 !important; }
     .hero-subtitle { font-size: 1rem !important; letter-spacing: 2px !important; }
+
+    /* Mais on remet le texte "À Propos" aligné normalement pour la lecture */
+    .about-container { flex-direction: column !important; gap: 2rem !important; }
+    .about-image-wrapper { width: 180px !important; height: 180px !important; margin: 0 auto !important; }
+    .about-text-content { text-align: left !important; } /* Lecture plus agréable */
+
+    /* 8. GRILLES & CARTES (BENTO / SKILLS) */
+    /* On passe tout en colonne unique pour que ça rentre */
+    .info-dashboard, .skills-grid, .procedures-grid, .veille-grid, .contact-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
     
-    /* Centre les éléments flex comme "A propos" */
-    .about-container { flex-direction: column !important; align-items: center !important; }
-    .about-text-content { text-align: center !important; }
-    .section-header { text-align: center !important; }
+    .bento-wide { grid-column: auto !important; }
     
-    /* Cache le footer latéral inutile sur mobile */
-    .sidebar-footer { display: none !important; } 
+    /* Cartes Parcours */
+    .parcours-card { 
+        flex-direction: column-reverse !important; 
+        align-items: flex-start !important;
+        padding: 1.5rem !important;
+    }
+    .parcours-icon-large { 
+        align-self: flex-end !important; 
+        margin-top: -30px !important; margin-bottom: 10px !important; font-size: 2.5rem !important; 
+    }
+    .parcours-content { padding-right: 0 !important; }
+    
+    /* Formulaire Contact */
+    .contact-form-wrapper form > div { grid-template-columns: 1fr !important; } /* Inputs l'un sous l'autre */
 }
 
 @media screen and (max-height: 850px) and (min-width: 900px) {
@@ -351,6 +370,7 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
     .logo-container { margin-bottom: 1.5rem; }
     nav a { padding: 10px 15px; }
 }
+
 
 
 
