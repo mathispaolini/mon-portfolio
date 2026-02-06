@@ -214,11 +214,11 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
 .btn-send:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4); }
 
 /* --- OPTIMISATION MOBILE (RESPONSIVE) --- */
-/* --- RECTIFICATION NAVIGATION MOBILE + BLUR --- */
+/* --- RECTIFICATION FINALE MOBILE (BURGER DROITE + BLUR) --- */
 @media (max-width: 900px) {
     :root { 
         --sidebar-width: 0px; 
-        --header-height: 70px;
+        --header-height: 80px; /* Hauteur confortable pour le mobile */
     }
 
     header { 
@@ -226,39 +226,57 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
         height: var(--header-height) !important;
         padding: 0 1.5rem !important; 
         position: fixed !important; 
+        display: flex !important; /* Force le flexbox */
         flex-direction: row !important;
-        justify-content: space-between !important; 
+        justify-content: space-between !important; /* Pousse le logo à gauche et le burger à droite */
         align-items: center !important; 
         border-right: none !important;
-        border-bottom: 1px solid var(--border) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        background: rgba(2, 6, 23, 0.95) !important;
+        backdrop-filter: blur(10px) !important;
     }
 
+    /* Le Logo à Gauche */
     .logo-container { 
         flex-direction: row !important; 
         margin-bottom: 0 !important; 
         width: auto !important; 
-        gap: 12px !important; 
+        gap: 15px !important; 
         text-align: left !important; 
+        display: flex !important;
+        align-items: center !important;
     }
 
-    .logo-circle { width: 40px !important; height: 40px !important; margin-bottom: 0 !important; }
-    .logo-text { font-size: 1rem !important; }
+    .logo-circle { 
+        width: 45px !important; 
+        height: 45px !important; 
+        margin-bottom: 0 !important; 
+        border-width: 2px !important;
+    }
+    
+    .logo-text { font-size: 1.1rem !important; }
     .logo-status { display: none !important; }
 
-    main { 
-        margin-left: 0 !important; 
-        margin-top: var(--header-height) !important;
-        width: 100% !important; 
+    /* On sort le conteneur nav du flux pour ne pas gêner l'alignement */
+    nav {
+        position: static !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
+    /* Le Bouton Burger à Droite */
     .menu-toggle { 
         display: block !important; 
-        font-size: 1.4rem !important; 
+        font-size: 1.8rem !important; 
         color: white !important; 
-        z-index: 1001 !important;
+        cursor: pointer !important;
+        z-index: 1002 !important; /* Au-dessus de tout */
+        margin-left: auto !important; /* Sécurité pour forcer la droite */
     }
 
-    /* Le menu quand il est FERMÉ */
+    /* Le Menu Déroulant (Caché par défaut) */
     nav ul { 
         display: none; 
         position: fixed !important; 
@@ -266,35 +284,46 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
         left: 0 !important; 
         width: 100% !important; 
         height: calc(100vh - var(--header-height)) !important;
-        /* background: var(--bg-dark) !important;  <-- J'ai modifié cette ligne ci-dessous pour l'effet */
         flex-direction: column !important; 
         padding: 2rem !important; 
-        gap: 1.5rem !important;
+        gap: 2rem !important;
         border-bottom: none !important;
         z-index: 1000 !important;
+        background: transparent !important; /* On laisse le blur faire le travail */
     }
 
-    /* Le menu quand il est OUVERT (C'est ici que j'ai ajouté le blur) */
+    /* Le Menu OUVERT (Avec effet Blur Premium) */
     nav ul.active { 
         display: flex !important;
-        /* Fond noir légèrement transparent pour voir le flou */
-        background: rgba(10, 10, 10, 0.85) !important; 
-        /* L'effet de flou sur l'arrière-plan */
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important; /* Pour que ça marche sur iPhone */
+        background: rgba(2, 6, 23, 0.85) !important; /* Fond sombre semi-transparent */
+        backdrop-filter: blur(15px) !important; /* L'effet de flou */
+        -webkit-backdrop-filter: blur(15px) !important;
+        animation: fadeIn 0.3s ease-out !important;
+    }
+
+    /* Ajustements du contenu principal */
+    main { 
+        margin-left: 0 !important; 
+        margin-top: var(--header-height) !important;
+        width: 100% !important; 
     }
 
     .sidebar-footer { display: none !important; } 
 
-    .mega-title { font-size: 2.5rem !important; }
-    .hero-subtitle { font-size: 1rem !important; letter-spacing: 1px !important; }
+    .mega-title { font-size: 2.8rem !important; line-height: 1.2 !important; }
+    .hero-subtitle { font-size: 1rem !important; letter-spacing: 2px !important; }
+    
+    /* Animation douce pour l'apparition du menu */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
 }
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
 
 @media screen and (max-height: 850px) and (min-width: 900px) {
     header { padding: 1rem 1.5rem; }
     .logo-container { margin-bottom: 1.5rem; }
     nav a { padding: 10px 15px; }
 }
+
 
