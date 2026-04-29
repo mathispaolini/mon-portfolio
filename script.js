@@ -348,17 +348,6 @@ const skillsData = {
 const skillModal = document.getElementById("skill-modal");
 const skillModalBody = document.getElementById("skill-modal-body");
 
-function openCertifModal(certKey) {
-    const data = skillsData[certKey];
-    if(!data) return;
-    
-    // On utilise exactement la même belle fenêtre que tes procédures !
-    if (typeof openPdfModal === "function") {
-        openPdfModal(data.title, data.desc, data.pdf);
-    } else {
-        console.error("La fonction openPdfModal n'est pas trouvée.");
-    }
-}
 function openSkillModal(skillKey) {
     const data = skillsData[skillKey];
     if(!data) return;
