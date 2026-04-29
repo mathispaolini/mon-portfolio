@@ -538,4 +538,21 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
         grid-template-columns: 1fr;
     }
 }
+/* =========================================
+   CORRECTION FOND BLANC - PROCÉDURES
+   ========================================= */
+
+.procedure-card {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.procedure-card h3 {
+    color: #f8fafc !important; /* Force le titre en blanc */
+}
+
+/* Au survol, on assombrit légèrement pour l'effet */
+.procedure-card:hover {
+    background: rgba(15, 23, 42, 0.9) !important;
+}
 
