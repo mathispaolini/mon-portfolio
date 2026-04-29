@@ -419,7 +419,6 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
 
 .procedure-card:hover .preview-btn {
     background: var(--primary);
-    color: white;
     border-color: var(--primary);
 }
 
