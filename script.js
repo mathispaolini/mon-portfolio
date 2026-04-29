@@ -448,13 +448,3 @@ const observeProcedures = () => {
 
 document.addEventListener('DOMContentLoaded', observeProcedures);
 
-function openPdfModal(title, desc, pdfUrl) {
-            document.getElementById('pdf-modal-title').innerText = title;
-            document.getElementById('pdf-modal-desc').innerText = desc;
-            
-            // LA LIGNE CORRIGÉE EST CELLE-CI (j'ai enlevé le #toolbar=0)
-            document.getElementById('pdf-modal-iframe').src = pdfUrl; 
-            
-            document.getElementById('pdf-modal-link').href = pdfUrl;
-            document.getElementById('pdf-modal').style.display = 'flex';
-        }
