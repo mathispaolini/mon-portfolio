@@ -348,6 +348,17 @@ const skillsData = {
 const skillModal = document.getElementById("skill-modal");
 const skillModalBody = document.getElementById("skill-modal-body");
 
+function openCertifModal(certKey) {
+    const data = skillsData[certKey];
+    if(!data) return;
+    
+    // On utilise exactement la même belle fenêtre que tes procédures !
+    if (typeof openPdfModal === "function") {
+        openPdfModal(data.title, data.desc, data.pdf);
+    } else {
+        console.error("La fonction openPdfModal n'est pas trouvée.");
+    }
+}
 function openSkillModal(skillKey) {
     const data = skillsData[skillKey];
     if(!data) return;
@@ -356,34 +367,6 @@ function openSkillModal(skillKey) {
     skillModalBody.innerHTML = `<div class="skill-detail-icon">${data.icon}</div><div class="skill-detail-title">${data.title}</div><div class="skill-detail-desc">${data.desc}</div><div class="skill-tag-container">${tagsHtml}</div>`;
     skillModal.style.display = "block";
 }
-
-// =========================================
-// FONCTION POUR OUVRIR LES PDF (PROCÉDURES & CERTIFS)
-// =========================================
-function openPdfModal(title, description, pdfPath) {
-    const modal = document.getElementById('skill-modal');
-    const body = document.getElementById('skill-modal-body');
-    
-    body.innerHTML = `
-        <div class="modal-header" style="margin-bottom: 20px;">
-            <h2 style="color: var(--primary); margin-bottom: 5px;">${title}</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">${description}</p>
-        </div>
-        <div class="pdf-container" style="height: 70vh; width: 100%; background: rgba(15, 23, 42, 0.8); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <iframe src="${pdfPath}" width="100%" height="100%" style="border: none;">
-                <p>Votre navigateur ne peut pas afficher ce PDF. <a href="${pdfPath}" target="_blank" style="color: var(--primary);">Cliquez ici pour l'ouvrir.</a></p>
-            </iframe>
-        </div>
-        <div style="margin-top: 1.5rem; text-align: center;">
-            <a href="${pdfPath}" target="_blank" style="display: inline-block; background: var(--primary); color: white; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">
-                <i class="fas fa-external-link-alt"></i> Ouvrir le PDF dans un nouvel onglet
-            </a>
-        </div>
-    `;
-    
-    modal.style.display = 'flex';
-}
-
 function closeSkillModal() { skillModal.style.display = "none"; }
 
 const legalModal = document.getElementById("legal-modal");
