@@ -223,21 +223,21 @@
                 <div class="skill-card" onclick="openSkillModal('drawio')"><div class="skill-icon" style="color: #eab308;"><i class="fas fa-ruler-combined"></i></div><h3>VISIO / DRAW.IO</h3></div>
             </div>
         </section>
+		  <div class="procedures-grid">
+                <div class="procedure-card" onclick="openPdfModal('Certification SecNumacad', 'Attestation de réussite du MOOC de l\'ANSSI sur la cybersécurité.', 'assets/docs/certs/certif_anssi.pdf')" style="cursor: pointer;">
+                    <i class="fa-solid fa-certificate" style="font-size: 2rem; color: #ffd700;"></i>
+                    <h3 style="font-size: 1.1rem; margin: 0;">SecNumacad (ANSSI)</h3>
+                </div>
 
-        <section id="certifications">
-            <div class="section-header reveal" style="text-align: left; margin-bottom: 4rem;">
-                <h2><span class="bts-number">05</span> Certifications 📜</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-                    Afin de valider mes compétences et d'assurer une expertise reconnue, j'ai passé plusieurs certifications et modules au cours de ma formation et en autonomie. Ces attestations témoignent de ma capacité à respecter les standards de l'industrie, notamment en matière de cybersécurité et de configuration réseau.
-                    <br><span style="font-size: 0.9rem; color: var(--primary);"><i class="fas fa-info-circle"></i> Cliquez pour voir le PDF de la certification.</span>
-                </p>
-            </div>
-            <div class="skills-grid reveal">
-                <div class="skill-card" onclick="openCertifModal('secnum')"><div class="skill-icon" style="color: #ef4444;"><i class="fas fa-shield-alt"></i></div><h3>SECNUMACADÉMIE</h3></div>
-                <div class="skill-card" onclick="openCertifModal('pix')"><div class="skill-icon" style="color: #3b82f6;"><i class="fas fa-desktop"></i></div><h3>CERTIFICATION PIX</h3></div>
-                <div class="skill-card" onclick="openCertifModal('cisco_intro')"><div class="skill-icon" style="color: #facc15;"><i class="fas fa-user-secret"></i></div><h3>CISCO INTRO CYBER</h3></div>
-                <div class="skill-card" onclick="openCertifModal('cisco_basics')"><div class="skill-icon" style="color: #0d9488;"><i class="fas fa-globe"></i></div><h3>CISCO BASICS</h3></div>
-                <div class="skill-card" onclick="openCertifModal('cisco_config')"><div class="skill-icon" style="color: #94a3b8;"><i class="fas fa-cogs"></i></div><h3>CISCO CONFIG</h3></div>
+                <div class="procedure-card" onclick="openPdfModal('Certification Cisco', 'Validation des compétences en réseaux et infrastructures.', 'assets/docs/certs/certif_cisco.pdf')" style="cursor: pointer;">
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 2rem; color: var(--primary);"></i>
+                    <h3 style="font-size: 1.1rem; margin: 0;">Cisco Networking</h3>
+                </div>
+
+                <div class="procedure-card" onclick="openPdfModal('Certification PIX', 'Évaluation des compétences numériques transversales.', 'assets/docs/certs/certif_pix.pdf')" style="cursor: pointer;">
+                    <i class="fa-solid fa-award" style="font-size: 2rem; color: var(--accent);"></i>
+                    <h3 style="font-size: 1.1rem; margin: 0;">Certification PIX</h3>
+                </div>
             </div>
         </section>
 
@@ -657,6 +657,13 @@
             }
         });
     </script>
+	<section id="certifications">
+            <div class="section-header reveal" style="text-align: left; margin-top: 6rem; margin-bottom: 4rem;">
+                <h2><span class="bts-number">09</span> Certifications 🏆</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
+                    Voici les certifications et habilitations que j'ai obtenues. Elles attestent de mes compétences techniques et de mon engagement dans une formation continue.
+                </p>
+            </div>
 </body>
 </html>
 
