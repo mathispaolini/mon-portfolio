@@ -655,10 +655,10 @@
         </div>
     </div>
 	<script>
-        function openPdfModal(title, desc, pdfUrl) {
+       function openPdfModal(title, desc, pdfUrl) {
             document.getElementById('pdf-modal-title').innerText = title;
             document.getElementById('pdf-modal-desc').innerText = desc;
-            document.getElementById('pdf-modal-iframe').src = pdfUrl + '#toolbar=0';
+            document.getElementById('pdf-modal-iframe').src = pdfUrl; 
             document.getElementById('pdf-modal-link').href = pdfUrl;
             document.getElementById('pdf-modal').style.display = 'flex';
         }
