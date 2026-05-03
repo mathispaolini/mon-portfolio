@@ -263,97 +263,81 @@
             </div>
         </section>
 
-		<section id="tableau-synthese">
-    <div class="section-header reveal" style="text-align: left; margin-bottom: 3rem;">
-        <h2><span class="bts-number">06</span> Tableau de Synthèse E5 📊</h2>
-        <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
-            Ce document est la pièce maîtresse de mon examen de BTS SIO. Il répertorie l'intégralité des compétences SISR validées durant mon parcours.
+		<!-- SECTION 06 : TABLEAU DE SYNTHÈSE E5 -->
+<section id="tableau-synthese">
+    <div class="section-header reveal">
+        <h2><span class="bts-number">06</span> Synthèse E5 📊</h2>
+        <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px;">
+            Récapitulatif officiel des compétences SISR et réalisations professionnelles pour l'épreuve E5.
         </p>
     </div>
 
     <div class="e5-container reveal">
-        <!-- Carte interactive principale -->
-        <div class="e5-main-card" onclick="openPdfModal('Tableau de Synthèse E5', 'Récapitulatif officiel des compétences professionnelles (Session 2026).', 'assets/docs/Tableau_de_synthese_Mathis_PAOLINI.pdf')">
+        <div class="e5-main-card" onclick="openPdfModal('Tableau de Synthèse E5', 'Document officiel récapitulant les réalisations professionnelles et compétences SISR.', 'assets/docs/Tableau de synthèse Mathis PAOLINI- Epreuve E5.xlsx - Tableau de synthèse Épreuve E4.pdf')">
             <div class="e5-glass-effect"></div>
             <div class="e5-content">
                 <div class="e5-icon-wrapper">
-                    <i class="fas fa-file-signature"></i>
+                    <i class="fas fa-file-contract"></i>
                 </div>
                 <div class="e5-text">
+                    <span class="candidat-badge">Candidat n° 02541519301[cite: 1]</span>
                     <h3>Tableau de Synthèse Officiel</h3>
-                    <p>Candidat n° 02541519301 • Session 2025-2026</p>
+                    <p>Session 2025-2026 • Option SISR[cite: 1]</p>
                 </div>
-                <div class="e5-badge">CONSULTER</div>
+                <div class="e5-badge">VOIR LE PDF</div>
             </div>
         </div>
 
-        <!-- Grille de prévisualisation des domaines -->
         <div class="e5-features-grid">
-            <div class="e5-feature-item">
-                <i class="fas fa-server"></i>
-                <span>Gestion d'annuaire LDAP & AD[cite: 1]</span>
-            </div>
-            <div class="e5-feature-item">
-                <i class="fas fa-shield-halved"></i>
-                <span>Chiffrement SSL/TLS & ACLs[cite: 1]</span>
-            </div>
-            <div class="e5-feature-item">
-                <i class="fas fa-network-wired"></i>
-                <span>Infrastructure VLAN & DHCP[cite: 1]</span>
-            </div>
-            <div class="e5-feature-item">
-                <i class="fas fa-code"></i>
-                <span>Automatisation PowerShell[cite: 1]</span>
-            </div>
+            <div class="e5-feature-item"><i class="fas fa-check"></i> VLAN & Infrastructures[cite: 1]</div>
+            <div class="e5-feature-item"><i class="fas fa-check"></i> Active Directory & LDAP[cite: 1]</div>
+            <div class="e5-feature-item"><i class="fas fa-check"></i> Scripts PowerShell[cite: 1]</div>
+            <div class="e5-feature-item"><i class="fas fa-check"></i> DHCP & DNS Linux[cite: 1]</div>
         </div>
     </div>
 </section>
-		
-        <section id="veille-technologique">
+
+<!-- SECTION 07 : VEILLE IA ACT -->
+<section id="veille-technologique">
     <div class="section-header reveal">
         <h2><span class="bts-number">07</span> Veille Technologique 📡</h2>
-        <h3 class="veille-main-title">L'IA Act : La régulation européenne de l'IA</h3>
+        <h3 style="color: white; font-size: 1.8rem; margin-top: 1rem;">L'IA Act : La régulation européenne de l'IA</h3>
+        <p style="color: var(--text-muted); margin-top: 1rem; line-height: 1.6;">
+            Adopté en 2024, l'IA Act est le <strong>premier cadre juridique complet au monde</strong> garantissant des systèmes sûrs et transparents.
+        </p>
     </div>
 
-    <div class="veille-ia-container reveal">
-        <div class="veille-intro-card">
-            <p>Adopté en 2024, l'IA Act est le <strong>premier cadre juridique complet au monde</strong>. Son but : garantir des systèmes sûrs, transparents et non discriminatoires.</p>
-        </div>
-
-        <div class="ia-risk-grid">
-            <!-- Risque Inacceptable -->
-            <div class="ia-card risk-extreme">
-                <div class="ia-icon"><i class="fas fa-ban"></i></div>
-                <h4>Risque Inacceptable</h4>
-                <p><strong>Strictement Interdit :</strong> Social scoring citoyen, manipulation cognitive.</p>
-                <div class="ia-status">INTERDIT</div>
-            </div>
-
-            <!-- Haut Risque -->
-            <div class="ia-card risk-high">
-                <div class="ia-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                <h4>IA à "Haut Risque"</h4>
-                <p>Domaines critiques : santé, infrastructures réseaux, recrutement (tri de CV sans biais).</p>
-                <div class="ia-status">RÉGULÉ</div>
-            </div>
-
-            <!-- IA Générative -->
-            <div class="ia-card risk-transparency">
-                <div class="ia-icon"><i class="fas fa-eye"></i></div>
-                <h4>Transparence</h4>
-                <p>ChatGPT / Midjourney : identification des deepfakes et respect du droit d'auteur.</p>
-                <div class="ia-status">OBLIGATION</div>
+    <div class="veille-ia-grid reveal">
+        <div class="ia-card risk-extreme">
+            <div class="ia-icon"><i class="fas fa-ban"></i></div>
+            <div class="ia-content">
+                <h3>Risque Inacceptable</h3>
+                <p><strong>Interdit :</strong> Social scoring et manipulation cognitive.</p>
             </div>
         </div>
-
-        <div class="veille-sources">
-            <span>Sources suivies :</span>
-            <div class="source-pills">
-                <span class="pill">CNIL</span>
-                <span class="pill">Commission Européenne</span>
-                <span class="pill">Le Monde Informatique</span>
-                <span class="pill">Next INpact</span>
+        <div class="ia-card risk-high">
+            <div class="ia-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="ia-content">
+                <h3>IA à "Haut Risque"</h3>
+                <p><strong>Régulé :</strong> Santé, infrastructures et recrutement (tri de CV sans biais).</p>
             </div>
+        </div>
+        <div class="ia-card risk-blue">
+            <div class="ia-icon"><i class="fas fa-eye"></i></div>
+            <div class="ia-content">
+                <h3>Transparence</h3>
+                <p><strong>Obligation :</strong> Identification des deepfakes et respect du droit d'auteur.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sources-container reveal" style="margin-top: 3rem;">
+        <h4 style="color: white; margin-bottom: 1.5rem;"><i class="fas fa-rss"></i> Sources suivies :</h4>
+        <div class="source-pills">
+            <span class="skill-pill">CNIL</span>
+            <span class="skill-pill">Commission Européenne</span>
+            <span class="skill-pill">Le Monde Informatique</span>
+            <span class="skill-pill">Next INpact</span>
         </div>
     </div>
 </section>
