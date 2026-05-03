@@ -538,3 +538,90 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
     }
 }
 
+/* Styles pour la section E5 */
+.e5-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.e5-main-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.e5-main-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+.e5-glass-effect {
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: 0.5s;
+}
+
+.e5-main-card:hover .e5-glass-effect {
+    left: 100%;
+}
+
+.e5-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.e5-icon-wrapper {
+    font-size: 3rem;
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 15px;
+}
+
+.e5-text h3 { font-size: 1.8rem; margin-bottom: 0.5rem; color: white; }
+.e5-text p { color: var(--text-muted); font-family: 'Outfit', sans-serif; }
+
+.e5-badge {
+    margin-left: auto;
+    background: var(--primary);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.e5-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.e5-feature-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.e5-feature-item i { color: var(--primary); }
