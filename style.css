@@ -678,3 +678,77 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
     margin-bottom: 0.5rem;
     display: inline-block;
 }
+
+/* --- STYLES VEILLE IA ACT --- */
+.ia-title { font-size: 1.8rem; color: white; margin-top: 1rem; margin-bottom: 1.5rem; }
+.ia-intro { color: var(--text-muted); max-width: 900px; line-height: 1.7; margin-bottom: 3rem; }
+
+.ia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.ia-card {
+    position: relative;
+    background: rgba(15, 23, 42, 0.6); /* Fond sombre transparent */
+    backdrop-filter: blur(12px); /* Effet de flou sur les particules */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.ia-card-content { position: relative; z-index: 2; }
+
+/* Les icônes et badges en haut de carte */
+.ia-icon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.ia-icon-header i { font-size: 2rem; }
+.ia-label { font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; }
+
+/* Couleurs spécifiques par niveau de risque */
+.forbidden { border-top: 4px solid #ef4444; }
+.forbidden i, .forbidden .ia-label { color: #ef4444; }
+.forbidden .ia-label { background: rgba(239, 68, 68, 0.1); }
+
+.high-risk { border-top: 4px solid #f59e0b; }
+.high-risk i, .high-risk .ia-label { color: #f59e0b; }
+.high-risk .ia-label { background: rgba(245, 158, 11, 0.1); }
+
+.transparency { border-top: 4px solid var(--primary); }
+.transparency i, .transparency .ia-label { color: var(--primary); }
+.transparency .ia-label { background: rgba(59, 130, 246, 0.1); }
+
+/* Animation au survol */
+.ia-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+/* Footer de la veille (Sources) */
+.veille-footer {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.veille-footer h4 { color: white; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
+.source-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
+.source-tag {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+.source-tag:hover { background: var(--primary); transform: scale(1.05); }
