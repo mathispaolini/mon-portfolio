@@ -787,3 +787,39 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
     transform: translateY(-3px);
 }
 
+/* --- FIX SECTION E5 --- */
+.e5-dashboard { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; margin-top: 2rem; }
+.e5-tags { display: flex; gap: 15px; margin-top: 1.5rem; }
+.e5-tags span { background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
+
+.e5-interactive-card {
+    background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem; border-radius: 30px; cursor: pointer; position: relative;
+    transition: 0.4s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.e5-interactive-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2); }
+.card-id { font-family: monospace; color: var(--text-muted); font-size: 0.7rem; }
+.card-footer { margin-top: 2rem; color: var(--primary); font-weight: 800; font-size: 0.9rem; }
+
+/* --- FIX VEILLE IA (GLASSMORPHISM) --- */
+.ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.ia-card {
+    background: rgba(15, 23, 42, 0.7); /* Fond sombre transparent */
+    backdrop-filter: blur(12px); /* FLOU QUI RÉPARE TON IMAGE */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.5rem; border-radius: 20px; transition: 0.4s;
+}
+.ia-card i { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.risk-red { border-top: 4px solid #ef4444; }
+.risk-orange { border-top: 4px solid #f59e0b; }
+.risk-blue { border-top: 4px solid var(--primary); }
+
+.veille-method {
+    margin-top: 3rem; background: rgba(255, 255, 255, 0.03);
+    padding: 2rem; border-radius: 20px; border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+    .e5-dashboard { grid-template-columns: 1fr; text-align: center; }
+    .e5-tags { justify-content: center; }
+}
