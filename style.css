@@ -625,3 +625,56 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
 }
 
 .e5-feature-item i { color: var(--primary); }
+
+/* --- Styles spécifiques IA ACT --- */
+.veille-ia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ia-card {
+    background: var(--card-glass);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    gap: 1.5rem;
+    transition: 0.4s ease;
+    border-top: 4px solid var(--primary);
+}
+
+.ia-card:hover {
+    transform: translateY(-10px);
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.risk-extreme { border-top-color: #ef4444; }
+.risk-high { border-top-color: #f59e0b; }
+.risk-blue { border-top-color: var(--primary); }
+
+.ia-icon {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.risk-extreme .ia-icon { color: #ef4444; }
+.risk-high .ia-icon { color: #f59e0b; }
+
+.source-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.candidat-badge {
+    font-size: 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
