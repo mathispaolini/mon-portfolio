@@ -44,16 +44,17 @@
         <div class="menu-toggle"><i class="fas fa-bars"></i></div>
         
         <nav>
-            <ul>
-                <li><a href="#accueil" class="nav-link active-link"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-text">Accueil</span></a></li>
-                <li><a href="#apropos" class="nav-link"><span class="nav-icon"><i class="fas fa-user"></i></span><span class="nav-text">Profil</span></a></li>
-                <li><a href="#competences" class="nav-link"><span class="nav-icon"><i class="fas fa-layer-group"></i></span><span class="nav-text">Compétences</span></a></li>
-				<li><a href="#tableau-synthese" class="nav-link"><span class="nav-icon"><i class="fas fa-table-list"></i></span><span class="nav-text">Synthèse E5</span></a></li>
-                <li><a href="#docs-techniques" class="nav-link"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-text">Projets</span></a></li>
-                <li><a href="#parcours" class="nav-link"><span class="nav-icon"><i class="fas fa-route"></i></span><span class="nav-text">Parcours</span></a></li>
-                <li><a href="#contact" class="nav-link contact-link"><span class="nav-icon"><i class="fas fa-paper-plane"></i></span><span class="nav-text">Contact</span></a></li>
-            </ul>
-        </nav>
+    <ul>
+        <li><a href="#accueil" class="nav-link active-link"><span class="nav-icon"><i class="fas fa-home"></i></span><span class="nav-text">Accueil</span></a></li>
+        <li><a href="#apropos" class="nav-link"><span class="nav-icon"><i class="fas fa-user"></i></span><span class="nav-text">Profil</span></a></li>
+        <li><a href="#competences" class="nav-link"><span class="nav-icon"><i class="fas fa-layer-group"></i></span><span class="nav-text">Compétences</span></a></li>
+        <li><a href="#certifications" class="nav-link"><span class="nav-icon"><i class="fas fa-certificate"></i></span><span class="nav-text">Certifications</span></a></li>
+        <li><a href="#tableau-synthese" class="nav-link"><span class="nav-icon"><i class="fas fa-table-list"></i></span><span class="nav-text">Synthèse E5</span></a></li>
+        <li><a href="#docs-techniques" class="nav-link"><span class="nav-icon"><i class="fas fa-folder-open"></i></span><span class="nav-text">Projets</span></a></li>
+        <li><a href="#parcours" class="nav-link"><span class="nav-icon"><i class="fas fa-route"></i></span><span class="nav-text">Parcours</span></a></li>
+        <li><a href="#contact" class="nav-link contact-link"><span class="nav-icon"><i class="fas fa-paper-plane"></i></span><span class="nav-text">Contact</span></a></li>
+    </ul>
+</nav>
         <div class="sidebar-footer">
             <div class="social-row">
                 <a href="https://www.linkedin.com/in/mathis-paolini-859a48343/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -261,6 +262,52 @@
             </div>
         </section>
 
+		<section id="tableau-synthese">
+    <div class="section-header reveal" style="text-align: left; margin-bottom: 3rem;">
+        <h2><span class="bts-number">06</span> Tableau de Synthèse E5 📊</h2>
+        <p style="color: var(--text-muted); margin-top: 1rem; max-width: 900px; line-height: 1.6;">
+            Ce document est la pièce maîtresse de mon examen de BTS SIO. Il répertorie l'intégralité des compétences SISR validées durant mon parcours.
+        </p>
+    </div>
+
+    <div class="e5-container reveal">
+        <!-- Carte interactive principale -->
+        <div class="e5-main-card" onclick="openPdfModal('Tableau de Synthèse E5', 'Récapitulatif officiel des compétences professionnelles (Session 2026).', 'assets/docs/Tableau_de_synthese_Mathis_PAOLINI.pdf')">
+            <div class="e5-glass-effect"></div>
+            <div class="e5-content">
+                <div class="e5-icon-wrapper">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="e5-text">
+                    <h3>Tableau de Synthèse Officiel</h3>
+                    <p>Candidat n° 02541519301 • Session 2025-2026</p>
+                </div>
+                <div class="e5-badge">CONSULTER</div>
+            </div>
+        </div>
+
+        <!-- Grille de prévisualisation des domaines -->
+        <div class="e5-features-grid">
+            <div class="e5-feature-item">
+                <i class="fas fa-server"></i>
+                <span>Gestion d'annuaire LDAP & AD[cite: 1]</span>
+            </div>
+            <div class="e5-feature-item">
+                <i class="fas fa-shield-halved"></i>
+                <span>Chiffrement SSL/TLS & ACLs[cite: 1]</span>
+            </div>
+            <div class="e5-feature-item">
+                <i class="fas fa-network-wired"></i>
+                <span>Infrastructure VLAN & DHCP[cite: 1]</span>
+            </div>
+            <div class="e5-feature-item">
+                <i class="fas fa-code"></i>
+                <span>Automatisation PowerShell[cite: 1]</span>
+            </div>
+        </div>
+    </div>
+</section>
+		
         <section id="veille-technologique">
             <div class="section-header reveal" style="text-align: left; margin-bottom: 4rem;">
                 <h2><span class="bts-number">08</span> Veille Technologique 📡</h2>
