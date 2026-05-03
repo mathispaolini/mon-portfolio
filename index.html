@@ -297,47 +297,63 @@
     </div>
 </section>
 
-<!-- SECTION 07 : VEILLE IA ACT -->
 <section id="veille-technologique">
     <div class="section-header reveal">
         <h2><span class="bts-number">07</span> Veille Technologique 📡</h2>
-        <h3 style="color: white; font-size: 1.8rem; margin-top: 1rem;">L'IA Act : La régulation européenne de l'IA</h3>
-        <p style="color: var(--text-muted); margin-top: 1rem; line-height: 1.6;">
-            Adopté en 2024, l'IA Act est le <strong>premier cadre juridique complet au monde</strong> garantissant des systèmes sûrs et transparents.
+        <h3 class="ia-title">L'IA Act : La régulation européenne de l'IA</h3>
+        <p class="ia-intro">
+            Adopté par le Parlement européen en 2024, l'IA Act est le <strong>premier cadre juridique complet au monde</strong> sur l'Intelligence Artificielle. Son objectif est de garantir que les systèmes d'IA utilisés dans l'UE soient sûrs, transparents et non discriminatoires.
         </p>
     </div>
 
-    <div class="veille-ia-grid reveal">
-        <div class="ia-card risk-extreme">
-            <div class="ia-icon"><i class="fas fa-ban"></i></div>
-            <div class="ia-content">
-                <h3>Risque Inacceptable</h3>
-                <p><strong>Interdit :</strong> Social scoring et manipulation cognitive.</p>
+    <div class="ia-grid reveal">
+        <!-- Risque Inacceptable -->
+        <div class="ia-card forbidden">
+            <div class="ia-card-glow"></div>
+            <div class="ia-card-content">
+                <div class="ia-icon-header">
+                    <i class="fas fa-ban"></i>
+                    <span class="ia-label">INTERDIT</span>
+                </div>
+                <h4>Risque Inacceptable</h4>
+                <p>Systèmes de <strong>social scoring</strong> citoyen ou de manipulation cognitive. Ces IA sont strictement proscrites en Europe.</p>
             </div>
         </div>
-        <div class="ia-card risk-high">
-            <div class="ia-icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <div class="ia-content">
-                <h3>IA à "Haut Risque"</h3>
-                <p><strong>Régulé :</strong> Santé, infrastructures et recrutement (tri de CV sans biais).</p>
+
+        <!-- Haut Risque -->
+        <div class="ia-card high-risk">
+            <div class="ia-card-glow"></div>
+            <div class="ia-card-content">
+                <div class="ia-icon-header">
+                    <i class="fas fa-shield-virus"></i>
+                    <span class="ia-label">RÉGULÉ</span>
+                </div>
+                <h4>IA à "Haut Risque"</h4>
+                <p>Utilisées dans la santé, les infrastructures réseaux ou le <strong>recrutement</strong> (tri de CV sans biais discriminatoires).</p>
             </div>
         </div>
-        <div class="ia-card risk-blue">
-            <div class="ia-icon"><i class="fas fa-eye"></i></div>
-            <div class="ia-content">
-                <h3>Transparence</h3>
-                <p><strong>Obligation :</strong> Identification des deepfakes et respect du droit d'auteur.</p>
+
+        <!-- Transparence -->
+        <div class="ia-card transparency">
+            <div class="ia-card-glow"></div>
+            <div class="ia-card-content">
+                <div class="ia-icon-header">
+                    <i class="fas fa-eye"></i>
+                    <span class="ia-label">OBLIGATION</span>
+                </div>
+                <h4>IA Générative</h4>
+                <p>Les modèles comme ChatGPT ou Midjourney doivent identifier clairement les <strong>contenus générés</strong> (deepfakes).</p>
             </div>
         </div>
     </div>
 
-    <div class="sources-container reveal" style="margin-top: 3rem;">
-        <h4 style="color: white; margin-bottom: 1.5rem;"><i class="fas fa-rss"></i> Sources suivies :</h4>
-        <div class="source-pills">
-            <span class="skill-pill">CNIL</span>
-            <span class="skill-pill">Commission Européenne</span>
-            <span class="skill-pill">Le Monde Informatique</span>
-            <span class="skill-pill">Next INpact</span>
+    <div class="veille-footer reveal">
+        <h4><i class="fas fa-broadcast-tower"></i> Sources suivies :</h4>
+        <div class="source-cloud">
+            <span class="source-tag">CNIL</span>
+            <span class="source-tag">Commission Européenne</span>
+            <span class="source-tag">Le Monde Informatique</span>
+            <span class="source-tag">Next INpact</span>
         </div>
     </div>
 </section>
