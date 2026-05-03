@@ -679,76 +679,110 @@ section { padding: 6rem 5%; max-width: 1600px; margin: 0 auto !important; conten
     display: inline-block;
 }
 
-/* --- STYLES VEILLE IA ACT --- */
-.ia-title { font-size: 1.8rem; color: white; margin-top: 1rem; margin-bottom: 1.5rem; }
-.ia-intro { color: var(--text-muted); max-width: 900px; line-height: 1.7; margin-bottom: 3rem; }
+/* --- VEILLE IA ACT STYLES --- */
+.veille-intro {
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 950px;
+    margin-bottom: 3.5rem;
+    font-size: 1.05rem;
+}
 
-.ia-grid {
+.ia-act-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
 
-.ia-card {
+.ia-risk-card {
     position: relative;
-    background: rgba(15, 23, 42, 0.6); /* Fond sombre transparent */
-    backdrop-filter: blur(12px); /* Effet de flou sur les particules */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
+    background: rgba(15, 23, 42, 0.6); /* Fond semi-sombre */
+    backdrop-filter: blur(15px); /* FIX : Le flou qui règle le problème de l'image */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.ia-card-content { position: relative; z-index: 2; }
+.ia-risk-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary);
+    background: rgba(15, 23, 42, 0.85);
+}
 
-/* Les icônes et badges en haut de carte */
-.ia-icon-header {
+.risk-icon-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
 }
-.ia-icon-header i { font-size: 2rem; }
-.ia-label { font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; }
 
-/* Couleurs spécifiques par niveau de risque */
-.forbidden { border-top: 4px solid #ef4444; }
-.forbidden i, .forbidden .ia-label { color: #ef4444; }
-.forbidden .ia-label { background: rgba(239, 68, 68, 0.1); }
-
-.high-risk { border-top: 4px solid #f59e0b; }
-.high-risk i, .high-risk .ia-label { color: #f59e0b; }
-.high-risk .ia-label { background: rgba(245, 158, 11, 0.1); }
-
-.transparency { border-top: 4px solid var(--primary); }
-.transparency i, .transparency .ia-label { color: var(--primary); }
-.transparency .ia-label { background: rgba(59, 130, 246, 0.1); }
-
-/* Animation au survol */
-.ia-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(15, 23, 42, 0.8);
+.risk-icon-row i { font-size: 2.5rem; }
+.risk-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 8px;
+    letter-spacing: 1px;
 }
 
-/* Footer de la veille (Sources) */
-.veille-footer {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2rem;
-    border-radius: 20px;
-    border: 1px dashed rgba(255, 255, 255, 0.1);
+/* Couleurs par niveau de risque */
+.forbidden { border-left: 5px solid #ef4444; }
+.forbidden i, .forbidden h4 { color: #ef4444; }
+.forbidden .risk-badge { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+.high-risk { border-left: 5px solid #f59e0b; }
+.high-risk i, .high-risk h4 { color: #f59e0b; }
+.high-risk .risk-badge { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+.transparency { border-left: 5px solid var(--primary); }
+.transparency i, .transparency h4 { color: var(--primary); }
+.transparency .risk-badge { background: rgba(59, 130, 246, 0.15); color: var(--primary); }
+
+.risk-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-top: 1rem;
 }
-.veille-footer h4 { color: white; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px; }
-.source-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Méthodologie et Sources */
+.veille-methodology {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+}
+
+.method-box h4, .sources-box h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.source-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .source-tag {
     background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
     color: white;
-    padding: 6px 16px;
+    text-decoration: none;
+    padding: 8px 16px;
     border-radius: 50px;
     font-size: 0.85rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
     transition: 0.3s;
 }
-.source-tag:hover { background: var(--primary); transform: scale(1.05); }
+
+.source-tag:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
