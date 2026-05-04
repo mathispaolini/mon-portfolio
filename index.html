@@ -415,7 +415,7 @@
             <p class="section-intro reveal">Documentation technique rédigée lors de mes TP ou en autonomie. Ces procédures décrivent étape par étape la mise en place de solutions d'infrastructure complexes. <span class="hint-text"><i class="fas fa-info-circle"></i> Cliquez pour voir le PDF.</span></p>
 
             <div class="procs-grid reveal">
-                <div class="proc-card" onclick="openPdfModal('Installation Linux Debian 12.5','Procédure détaillée pas à pas pour l\'installation et la configuration initiale d\'un serveur Linux Debian 12.5.','assets/docs/procs/proc_debian.pdf')">
+                <div class="proc-card" onclick="openPdfModal('Installation Linux Debian 12.5','Procédure détaillée pas à pas pour l\'installation et la configuration initiale d\'un serveur Linux Debian 12.5.','assets/docs/procs/linux.pdf')">
                     <i class="fa-brands fa-linux" style="color:#facc15"></i>
                     <div><h4>Installation Linux Debian 12.5</h4><p>Installation & configuration initiale</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
@@ -425,29 +425,19 @@
                     <div><h4>Architecture 3-tiers</h4><p>Web sécurisé & modulaire</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('Serveur Apache HTTPS','Sécurisation d\'un serveur Web Apache avec la création et la mise en place de certificats pour le protocole HTTPS.','assets/docs/procs/apachedns.pdf')">
+                <div class="proc-card" onclick="openPdfModal('Serveur Apache HTTPS','Sécurisation d\'un serveur Web Apache avec la création et la mise en place de certificats pour le protocole HTTPS.','assets/docs/procs/apache.pdf')">
                     <i class="fa-solid fa-lock" style="color:#8b5cf6"></i>
                     <div><h4>Serveur Apache HTTPS</h4><p>Certificats & protocole HTTPS</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('DNS Secondaire Bind9','Mise en place d\'un serveur DNS secondaire avec Bind9 pour assurer la redondance et la haute disponibilité.','assets/docs/procs/proc_dns_sec.pdf')">
+                <div class="proc-card" onclick="openPdfModal('DNS Secondaire Bind9','Mise en place d\'un serveur DNS secondaire avec Bind9 pour assurer la redondance et la haute disponibilité.','assets/docs/procs/dns_bind9.pdf')">
                     <i class="fa-solid fa-project-diagram" style="color:#3b82f6"></i>
                     <div><h4>DNS Secondaire Bind9</h4><p>Redondance & haute disponibilité</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('Configuration d\'un serveur DHCP','Déploiement et configuration d\'un service DHCP pour l\'attribution dynamique des adresses IP sur le réseau.','assets/docs/procs/proc_dhcp.pdf')">
+                <div class="proc-card" onclick="openPdfModal('Configuration d\'un serveur DHCP','Déploiement et configuration d\'un service DHCP pour l\'attribution dynamique des adresses IP sur le réseau.','assets/docs/procs/dhcp.pdf')">
                     <i class="fa-solid fa-wifi" style="color:#10b981"></i>
                     <div><h4>Configuration serveur DHCP</h4><p>Attribution dynamique des IP</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
-                <div class="proc-card" onclick="openPdfModal('Procédure FTPS','Installation et sécurisation d\'un serveur de transfert de fichiers (FTP) via le protocole chiffré FTPS.','assets/docs/procs/proc_ftps.pdf')">
-                    <i class="fa-solid fa-file-shield" style="color:#8b5cf6"></i>
-                    <div><h4>Procédure FTPS</h4><p>Transfert de fichiers chiffré</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
-                <div class="proc-card" onclick="openPdfModal('Gestion des Comptes (AGDLP)','Application des bonnes pratiques Microsoft (méthode AGDLP) pour la gestion des droits et des accès utilisateurs.','assets/docs/procs/proc_agdlp.pdf')">
-                    <i class="fa-solid fa-users-cog" style="color:#3b82f6"></i>
-                    <div><h4>Gestion des Comptes (AGDLP)</h4><p>Bonnes pratiques Microsoft</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
                 <div class="proc-card" onclick="openPdfModal('Procédure Proxy Squid','Mise en œuvre d\'un serveur proxy Squid pour le filtrage et la mise en cache du trafic web de l\'entreprise.','assets/docs/procs/squid.pdf')">
@@ -455,29 +445,14 @@
                     <div><h4>Procédure Proxy Squid</h4><p>Filtrage & mise en cache web</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('Le Serveur ProFTP','Déploiement d\'un serveur ProFTPD sous Linux pour la gestion robuste des transferts de fichiers.','assets/docs/procs/proc_proftp.pdf')">
-                    <i class="fa-solid fa-folder-open" style="color:#8b5cf6"></i>
-                    <div><h4>Le Serveur ProFTP</h4><p>Gestion FTP sous Linux</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
                 <div class="proc-card" onclick="openPdfModal('SAMBA Active Directory','Configuration de Samba en tant que contrôleur de domaine Active Directory pour l\'authentification centralisée.','assets/docs/procs/samba.pdf')">
                     <i class="fa-solid fa-users" style="color:#3b82f6"></i>
                     <div><h4>SAMBA Active Directory</h4><p>Contrôleur de domaine Linux</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('DNS Dynamique','Automatisation de la mise à jour des enregistrements DNS par le serveur DHCP (Dynamic DNS).','assets/docs/procs/proc_dns_dyn.pdf')">
-                    <i class="fa-solid fa-network-wired" style="color:#10b981"></i>
-                    <div><h4>DNS Dynamique</h4><p>Mise à jour auto via DHCP</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
-                <div class="proc-card" onclick="openPdfModal('Installation Service Web Apache 2','Installation et configuration de base du célèbre serveur HTTP Apache 2 sous environnement Linux.','assets/docs/procs/proc_apache2.pdf')">
+                <div class="proc-card" onclick="openPdfModal('Installation Service Web Apache 2','Installation et configuration de base du célèbre serveur HTTP Apache 2 sous environnement Linux.','assets/docs/procs/apache.pdf')">
                     <i class="fa-solid fa-server" style="color:#8b5cf6"></i>
                     <div><h4>Installation Apache 2</h4><p>Serveur HTTP sous Linux</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
-                <div class="proc-card" onclick="openPdfModal('Gestion du RAID Logiciel','Mise en place d\'une grappe RAID logicielle avec mdadm pour garantir la tolérance aux pannes des disques.','assets/docs/procs/proc_raid.pdf')">
-                    <i class="fa-solid fa-hdd" style="color:#3b82f6"></i>
-                    <div><h4>Gestion du RAID Logiciel</h4><p>Tolérance aux pannes disques</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
                 <div class="proc-card" onclick="openPdfModal('Procédure OpenLDAP','Installation d\'un annuaire OpenLDAP pour la centralisation des identités et des accès sous Linux.','assets/docs/procs/lamp.pdf')">
@@ -490,19 +465,14 @@
                     <div><h4>Load Balancing HAProxy</h4><p>Haute disponibilité</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('Apache et DNS','Intégration d\'un serveur web Apache avec un service DNS pour la gestion des Virtual Hosts par noms de domaine.','assets/docs/procs/proc_apache_dns.pdf')">
+                <div class="proc-card" onclick="openPdfModal('Apache et DNS','Intégration d\'un serveur web Apache avec un service DNS pour la gestion des Virtual Hosts par noms de domaine.','assets/docs/procs/apachedns.pdf')">
                     <i class="fa-solid fa-globe" style="color:#3b82f6"></i>
                     <div><h4>Apache et DNS</h4><p>Virtual Hosts par domaine</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('Création VM VirtualBox','Documentation des étapes de déploiement et de paramétrage d\'une machine virtuelle sous Oracle VirtualBox.','assets/docs/procs/proc_virtualbox.pdf')">
+                <div class="proc-card" onclick="openPdfModal('Création VM VirtualBox','Documentation des étapes de déploiement et de paramétrage d\'une machine virtuelle sous Oracle VirtualBox.','assets/docs/procs/vm.pdf')">
                     <i class="fa-solid fa-desktop" style="color:#10b981"></i>
                     <div><h4>Création VM VirtualBox</h4><p>Déploiement de VMs</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
-                <div class="proc-card" onclick="openPdfModal('Documentation Postfix','Installation et configuration d\'un serveur de messagerie (MTA) avec Postfix.','assets/docs/procs/proc_postfix.pdf')">
-                    <i class="fa-solid fa-envelope" style="color:#8b5cf6"></i>
-                    <div><h4>Documentation Postfix</h4><p>Serveur de messagerie MTA</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
                 <div class="proc-card" onclick="openPdfModal('Installation DNS Bind9','Procédure détaillée de déploiement d\'un serveur de résolution de noms de domaine avec Bind9.','assets/docs/procs/dns_bind9.pdf')">
@@ -510,14 +480,14 @@
                     <div><h4>Installation DNS Bind9</h4><p>Serveur de résolution de noms</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('DNS Primaire Bind9','Création et gestion des zones directes et inverses sur un serveur DNS principal.','assets/docs/procs/proc_dns_prim.pdf')">
-                    <i class="fa-solid fa-project-diagram" style="color:#10b981"></i>
-                    <div><h4>DNS Primaire Bind9</h4><p>Zones directes et inverses</p></div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
                 <div class="proc-card" onclick="openPdfModal('Procédure Samba','Partage de fichiers et d\'imprimantes en environnement hétérogène (Windows/Linux) via le service Samba.','assets/docs/procs/proc_samba.pdf')">
                     <i class="fa-solid fa-share-nodes" style="color:#8b5cf6"></i>
                     <div><h4>Procédure Samba</h4><p>Partage Windows/Linux</p></div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+                <div class="proc-card" onclick="openPdfModal('Procédure Attaque MITM','Attaque MITM et bonne pratique','assets/docs/procs/mitm.pdf')">
+                    <i class="fa-solid fa-share-nodes" style="color:#8b5cf6"></i>
+                    <div><h4>Procédure MITM</h4><p>Attaque MITM/Linux</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
             </div>
