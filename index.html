@@ -44,10 +44,10 @@
             </div>
         </div>
 
-        <button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="menu-toggle" id="menuToggleBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
 
         <nav>
-            <ul>
+            <ul id="navMenu">
                 <li><a href="#accueil" class="nav-link active-link"><span class="nav-icon"><i class="fas fa-house"></i></span><span class="nav-text">Accueil</span></a></li>
                 <li><a href="#apropos" class="nav-link"><span class="nav-icon"><i class="fas fa-user"></i></span><span class="nav-text">Profil</span></a></li>
                 <li><a href="#competences" class="nav-link"><span class="nav-icon"><i class="fas fa-layer-group"></i></span><span class="nav-text">Compétences</span></a></li>
@@ -68,6 +68,9 @@
             <p class="copy">© 2026 Mathis Paolini</p>
         </div>
     </header>
+
+    <!-- Overlay de fond pour le menu mobile -->
+    <div id="menu-backdrop"></div>
 
     <main>
         <!-- HERO -->
@@ -307,34 +310,30 @@
                     <p>Compétences numériques</p>
                 </div>
                 <div class="skill-card cert" onclick="openPdfModal('Cyber101', 'Certification d\'introduction aux fondamentaux de la cybersécurité.', 'assets/docs/certs/cyber101.pdf')">
-    <div class="skill-icon-wrap" style="--c:#f97316"><i class="fas fa-user-shield"></i></div>
-    <h3>CYBER 101</h3>
-    <p>Fondamentaux · Cybersécurité</p>
-</div>
-
-<div class="skill-card cert" onclick="openPdfModal('Microsoft Applied Skills', 'Certification Microsoft validant des compétences appliquées sur les technologies Microsoft.', 'assets/docs/certs/microsoft-applied-skills.pdf')">
-    <div class="skill-icon-wrap" style="--c:#3b82f6"><i class="fab fa-microsoft"></i></div>
-    <h3>MICROSOFT APPLIED SKILLS</h3>
-    <p>Compétences appliquées · Microsoft</p>
-</div>
-
-<div class="skill-card cert" onclick="openPdfModal('Cisco NetAcad – Introduction à la cybersécurité', 'Module Cisco Networking Academy sur les bases et enjeux de la cybersécurité.', 'assets/docs/certs/cisco-intro-cyber.pdf')">
-    <div class="skill-icon-wrap" style="--c:#0d9488"><i class="fas fa-shield-alt"></i></div>
-    <h3>CISCO – INTRO CYBERSÉCURITÉ</h3>
-    <p>NetAcad · Cybersécurité</p>
-</div>
-
-<div class="skill-card cert" onclick="openPdfModal('TryHackMe', 'Plateforme d\'apprentissage de la cybersécurité par la pratique (CTF, Labs).', 'assets/docs/certs/tryhackme.pdf')">
-    <div class="skill-icon-wrap" style="--c:#ef4444"><i class="fas fa-terminal"></i></div>
-    <h3>TRYHACKME</h3>
-    <p>CTF & Labs · Hacking Éthique</p>
-</div>
-
-<div class="skill-card cert" onclick="openPdfModal('Cisco NetAcad – Networking Basics', 'Module Cisco Networking Academy couvrant les bases des réseaux informatiques.', 'assets/docs/certs/cisco-networking-basics.pdf')">
-    <div class="skill-icon-wrap" style="--c:#0d9488"><i class="fas fa-network-wired"></i></div>
-    <h3>CISCO – NETWORKING BASICS</h3>
-    <p>NetAcad · Réseaux Fondamentaux</p>
-</div>
+                    <div class="skill-icon-wrap" style="--c:#f97316"><i class="fas fa-user-shield"></i></div>
+                    <h3>CYBER 101</h3>
+                    <p>Fondamentaux · Cybersécurité</p>
+                </div>
+                <div class="skill-card cert" onclick="openPdfModal('Microsoft Applied Skills', 'Certification Microsoft validant des compétences appliquées sur les technologies Microsoft.', 'assets/docs/certs/microsoft-applied-skills.pdf')">
+                    <div class="skill-icon-wrap" style="--c:#3b82f6"><i class="fab fa-microsoft"></i></div>
+                    <h3>MICROSOFT APPLIED SKILLS</h3>
+                    <p>Compétences appliquées · Microsoft</p>
+                </div>
+                <div class="skill-card cert" onclick="openPdfModal('Cisco NetAcad – Introduction à la cybersécurité', 'Module Cisco Networking Academy sur les bases et enjeux de la cybersécurité.', 'assets/docs/certs/cisco-intro-cyber.pdf')">
+                    <div class="skill-icon-wrap" style="--c:#0d9488"><i class="fas fa-shield-alt"></i></div>
+                    <h3>CISCO – INTRO CYBERSÉCURITÉ</h3>
+                    <p>NetAcad · Cybersécurité</p>
+                </div>
+                <div class="skill-card cert" onclick="openPdfModal('TryHackMe', 'Plateforme d\'apprentissage de la cybersécurité par la pratique (CTF, Labs).', 'assets/docs/certs/tryhackme.pdf')">
+                    <div class="skill-icon-wrap" style="--c:#ef4444"><i class="fas fa-terminal"></i></div>
+                    <h3>TRYHACKME</h3>
+                    <p>CTF & Labs · Hacking Éthique</p>
+                </div>
+                <div class="skill-card cert" onclick="openPdfModal('Cisco NetAcad – Networking Basics', 'Module Cisco Networking Academy couvrant les bases des réseaux informatiques.', 'assets/docs/certs/cisco-networking-basics.pdf')">
+                    <div class="skill-icon-wrap" style="--c:#0d9488"><i class="fas fa-network-wired"></i></div>
+                    <h3>CISCO – NETWORKING BASICS</h3>
+                    <p>NetAcad · Réseaux Fondamentaux</p>
+                </div>
             </div>
         </section>
 
@@ -356,7 +355,7 @@
                     </div>
                 </div>
                 <div class="e5-card-col">
-                  <div class="e5-premium-card" onclick="openPdfModal('Tableau de Synthèse — Mathis PAOLINI','Document officiel récapitulant les réalisations professionnelles — Session 2026.','assets/docs/tableaue5.pdf')">
+                    <div class="e5-premium-card" onclick="openPdfModal('Tableau de Synthèse — Mathis PAOLINI','Document officiel récapitulant les réalisations professionnelles — Session 2026.','assets/docs/tableaue5.pdf')">
                         <div class="e5-card-shine"></div>
                         <p class="e5-candidat">Candidat n° 02541519301</p>
                         <h4>TABLEAU DE SYNTHÈSE</h4>
@@ -484,18 +483,18 @@
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
                 <div class="proc-card" onclick="openPdfModal('Procédure Attaque MITM','Attaque MITM et bonne pratique','assets/docs/procs/mitm.pdf')">
-                    <i class="fa-solid fa-share-nodes" style="color:#8b5cf6"></i>
-                    <div><h4>Procédure MITM</h4><p>Attaque MITM/Linux</p></div>
+                    <i class="fa-solid fa-user-secret" style="color:#ef4444"></i>
+                    <div><h4>Procédure MITM</h4><p>Attaque MITM / Linux</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
                 <div class="proc-card" onclick="openPdfModal('Procédure Serveur de Messagerie','Serveur de Messagerie','assets/docs/procs/messagerie.pdf')">
-                    <i class="fa-solid fa-share-nodes" style="color:#8b5cf6"></i>
-                    <div><h4>Procédure Serveur de Messagerie</h4><p>Serveur Messagerie/Linux</p></div>
+                    <i class="fa-solid fa-envelope" style="color:#3b82f6"></i>
+                    <div><h4>Procédure Serveur de Messagerie</h4><p>Serveur Messagerie / Linux</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
-                <div class="proc-card" onclick="openPdfModal('Procédure Serveur de Miroring','Serveur de Miroring','assets/docs/procs/miroring.pdf')">
-                    <i class="fa-solid fa-share-nodes" style="color:#8b5cf6"></i>
-                    <div><h4>Procédure Serveur de Miroring</h4><p>Serveur de Miroring/Linux</p></div>
+                <div class="proc-card" onclick="openPdfModal('Procédure Serveur de Mirroring','Serveur de Mirroring','assets/docs/procs/miroring.pdf')">
+                    <i class="fa-solid fa-copy" style="color:#10b981"></i>
+                    <div><h4>Procédure Serveur de Mirroring</h4><p>Serveur de Mirroring / Linux</p></div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
             </div>
@@ -664,51 +663,33 @@
     </main>
 
     <!-- MODALS -->
-    <div id="legal-modal" class="modal">
+    <div id="legal-modal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content">
-            <button class="close-modal" onclick="this.closest('.modal').style.display='none'">&times;</button>
-            <h2>Mentions Légales & Confidentialité</h2>
+            <button class="close-modal" onclick="closeModal('legal-modal')">&times;</button>
+            <h2>Mentions Légales</h2>
             <div class="legal-body">
-    <p><strong>1. Éditeur du site</strong><br>
-    Ce site est édité par <strong>Mathis Paolini</strong>, étudiant en BTS SIO option SISR.<br>
-    Contact : <a href="mailto:paolinimathis@gmail.com" style="color:var(--blue)">paolinimathis@gmail.com</a></p>
+                <p><strong>1. Éditeur du site</strong><br>Mathis Paolini — Étudiant BTS SIO (Option SISR)<br>Contact : paolinimathis@gmail.com</p>
+                <p><strong>2. Hébergement</strong><br>Site hébergé par <strong>GitHub, Inc.</strong> (88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). Sécurisation HTTPS assurée par <strong>Cloudflare, Inc.</strong></p>
+                <p><strong>3. Données personnelles</strong><br>Ce site ne collecte aucune donnée personnelle à des fins de traçage ou de publicité. Les données saisies dans le formulaire de contact sont transmises via <strong>Formspree</strong> et utilisées uniquement pour répondre à vos messages. Conformément à la loi « Informatique et Libertés », vous disposez d'un droit d'accès et de rectification en me contactant à l'adresse ci-dessus.</p>
+                <p><strong>4. Propriété intellectuelle</strong><br>L'ensemble du contenu de ce site (textes, visuels, code) est la propriété exclusive de Mathis Paolini. Toute reproduction sans autorisation est interdite.</p>
+            </div>
+        </div>
+    </div>
 
-    <p><strong>2. Hébergement</strong><br>
-    Ce site est hébergé gratuitement par <strong>GitHub Pages</strong>, un service de GitHub, Inc.<br>
-    88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.<br>
-    <a href="https://pages.github.com" target="_blank" style="color:var(--blue)">https://pages.github.com</a></p>
-
-    <p><strong>3. Réseau de diffusion (CDN)</strong><br>
-    La diffusion du site est assurée par <strong>Cloudflare, Inc.</strong> (101 Townsend St, San Francisco, CA 94107, États-Unis), qui agit comme proxy inverse et CDN. Cloudflare peut traiter temporairement les adresses IP des visiteurs à des fins de sécurité et de performance, conformément à sa propre politique de confidentialité.<br>
-    <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" style="color:var(--blue)">Politique de confidentialité Cloudflare</a></p>
-
-    <p><strong>4. Cookies</strong><br>
-    Ce site <strong>n'utilise aucun cookie</strong>, ni traceur publicitaire, ni outil d'analyse de trafic. Aucune donnée personnelle n'est collectée lors de votre navigation.</p>
-
-    <p><strong>5. Formulaire de contact</strong><br>
-    Les données saisies dans le formulaire de contact (nom, adresse e-mail, message) sont transmises via le service <strong>Formspree</strong> et utilisées uniquement pour répondre à vos demandes. Elles ne sont ni conservées, ni revendues à des tiers.</p>
-
-    <p><strong>6. Droits</strong><br>
-    Conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour exercer ce droit, contactez : <a href="mailto:paolinimathis@gmail.com" style="color:var(--blue)">paolinimathis@gmail.com</a></p>
-
-    <p><strong>7. Propriété intellectuelle</strong><br>
-    L'ensemble du contenu de ce site (textes, code, design, documents) est la propriété exclusive de Mathis Paolini, sauf mention contraire. Toute reproduction est interdite sans autorisation préalable.</p>
-</div>
-
-    <div id="skill-modal" class="modal">
+    <div id="skill-modal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-content skill-modal-content">
-            <button class="close-modal" onclick="closeSkillModal()">&times;</button>
+            <button class="close-modal" onclick="closeModal('skill-modal')">&times;</button>
             <div id="skill-modal-body"></div>
         </div>
     </div>
 
-    <div id="pdf-modal" class="modal pdf-modal">
+    <div id="pdf-modal" class="modal pdf-modal" role="dialog" aria-modal="true">
         <div class="modal-content pdf-modal-content">
             <button class="close-modal" onclick="closePdfModal()">&times;</button>
             <h2 id="pdf-modal-title"></h2>
             <p id="pdf-modal-desc"></p>
             <div class="pdf-frame-wrap">
-                <iframe id="pdf-modal-iframe" src="" width="100%" height="100%"></iframe>
+                <iframe id="pdf-modal-iframe" src="" width="100%" height="100%" title="Document PDF"></iframe>
             </div>
             <div class="pdf-modal-footer">
                 <a id="pdf-modal-link" href="#" target="_blank" class="btn-open-pdf"><i class="fas fa-external-link-alt"></i> Ouvrir dans un nouvel onglet</a>
